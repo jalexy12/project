@@ -1,0 +1,23 @@
+body{
+	background-color: #EBF2F5;
+}
+.contentcontainer{
+	background-color: #D0E9F2;
+}
+.share{
+	float: right;
+}
+.bootcampIMG{
+	margin-top: 7px;
+	margin-bottom: 7px;
+	height: 200px;
+	width: 200px;
+}
+.cityIMG{
+	margin-bottom: 7px;
+	height: 200px;
+	width: 200px;
+}
+.cities{
+	margin-top: 50px;
+}
