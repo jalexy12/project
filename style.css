@@ -1,8 +1,16 @@
+html *
+{
+   font-size: 1em;
+   color: #000;
+   font-family: Arial;
+}
+
 body{
-	background-color: #EBF2F5;
+	/*background-color: #EBF2F5;*/
+	background: linear-gradient(to bottom right, #D0E9F2 , #0A3336);
 }
 .contentcontainer{
-	background-color: #D0E9F2;
+	background: linear-gradient(to bottom right, #D0E9F2 , #D3EEF0);
 }
 .share{
 	float: right;
