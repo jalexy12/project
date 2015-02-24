@@ -1,24 +1,35 @@
 <p id="notice"><%= notice %></p>
+<div class="cityimage col-sm-12"><%= image_tag(@city.image) %></div>
+<div class="citycontainer container">
+  <div class="name row">
+  	<div class='col-sm-4'>
+  	</div>
+	 <div class="cityname text-center col-sm-4"> <%= @city.name %>
+	 </div>
+	 <div class='col-sm-4'>
+  	</div>
+  </div>
+  <div class="description row">
+    <div class='col-sm-4'>
+  	</div>
+    <div class="col-sm-4">
+    	<div class="about text-center">About<br><br>
+		<%= @city.description %></div>
+		 <div class="bootcamps text-center">Bootcamps available in this city:<br><br>
+  		<%= @city.bootcamps %>
+        </div>    
+    <div class='col-sm-4'>
+  	</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @city.name %>
-</p>
 
-<p>
-  <strong>Image:</strong>
-
-  <%= image_tag(@city.image, width: '150', height: '150')  %>/></p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @city.description %>
-</p>
-
-<p>
-  <strong>Bootcamps:</strong>
-  <%= @city.bootcamps %>
-</p>
-
-<%= link_to 'Edit', edit_city_path(@city) %> |
-<%= link_to 'Back', cities_path %>
+<div class="linkbar row">
+	<div class='col-sm-4'>
+  	</div>
+  	<div class="col-sm-4">
+  	<%= link_to 'Edit', edit_city_path(@city) %> 
+  	<%= link_to 'Back', cities_path %>
+  	</div>
+  	<div class='col-sm-4'>
+  	</div>
+</div>
+</div>

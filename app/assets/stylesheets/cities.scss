@@ -1,3 +1,27 @@
 // Place all the styles related to the Cities controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.cityname{
+	font-size: 2em;
+	margin-bottom: 20px;
+}
+.cityimage img{
+	width: 100%;
+	height: 250px;
+	margin-bottom: 25px;
+}
+.img{
+	margin-bottom: 10px;
+}
+
+.about{
+	font-size: 1.5em;
+	margin-bottom: 30px;
+}
+.bootcamps{
+	font-size: 1.5em;
+	margin-bottom: 15px;
+}
+.description{
+	margin-bottom: 15px;
+}
