@@ -1,6 +1,6 @@
 class CitiesController < ApplicationController
   before_action :set_city, only: [:show, :edit, :update, :destroy]
-  ActionController::Base.helpers.asset_path("miami1.jpg", type: :image)
+  # ActionController::Base.helpers.asset_path("miami1.jpg", type: :image)
 
   # GET /cities
   # GET /cities.json

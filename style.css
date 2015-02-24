@@ -1,13 +1,13 @@
 html *
 {
-   font-size: 1em;
+   font-size: 1.2em;
    color: #000;
    font-family: Arial;
 }
 
 body{
 	/*background-color: #EBF2F5;*/
-	background: linear-gradient(to bottom right, #D0E9F2 , #0A3336);
+	background: linear-gradient(to bottom right, #D0E9F2 , #F0E6F5);
 }
 .contentcontainer{
 	background: linear-gradient(to bottom right, #D0E9F2 , #D3EEF0);
