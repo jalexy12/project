@@ -64,57 +64,43 @@
 				<div class="contentcontainer container">
 				<h2 class="text-center"> Available bootcamps</h2>
 					<div class="bootcamps row">
+					<% @bootcamps = Bootcamp.all %>
+					<% @bootcamps.each do |bootcamp| %>
 						<div class="col-sm-4">
-							<img src="/assets/cage.jpg" class="bootcampIMG">
+							<img src="<%=bootcamp.bootcampimgs.find(1).url%>" class="bootcampIMG">
 							<br>
-							<img src="/assets/cage.jpg" class="bootcampIMG">
+							<img src="<%=bootcamp.bootcampimgs.find(1).url%>" class="bootcampIMG">
 							<br>
-							<img src="/assets/cage.jpg" class="bootcampIMG">
+							<img src="<%=bootcamp.bootcampimgs.find(1).url%>" class="bootcampIMG">
 							<br>
 						</div>
 						<div class="col-sm-4">
-							<img src="/assets/cage.jpg" class="bootcampIMG">
+							<img src="<%=bootcamp.bootcampimgs.find(1).url%>" class="bootcampIMG">
 							<br>
-							<img src="/assets/cage.jpg" class="bootcampIMG">
+							<img src="<%=bootcamp.bootcampimgs.find(1).url%>" class="bootcampIMG">
 							<br>
-							<img src="/assets/cage.jpg" class="bootcampIMG">
+							<img src="<%=bootcamp.bootcampimgs.find(1).url%>" class="bootcampIMG">
 							<br>
 						</div>
 						<div class="col-sm-4">
-							<img src="/assets/cage.jpg" class="bootcampIMG">
+							<img src="<%=bootcamp.bootcampimgs.find(1).url%>" class="bootcampIMG">
 							<br>
-							<img src="/assets/cage.jpg" class="bootcampIMG">
+							<img src="<%=bootcamp.bootcampimgs.find(1).url%>" class="bootcampIMG">
 							<br>
-							<img src="/assets/cage.jpg" class="bootcampIMG">
+							<img src="<%=bootcamp.bootcampimgs.find(1).url%>" class="bootcampIMG">
 							<br>
 						</div>
+						<% end %>
 					</div>
-					<div class="cities row">
+					<div class="cities row">"
 					<h3 class="text-center">Available Cities</h3>
+						<% @cities = City.all %>
+						<% @cities.each do |city| %>
 						<div class="col-sm-4">
-							<img src="/assets/cage.gif" class="cityIMG">
-							<br>
-							<img src="/assets/cage.gif" class="cityIMG">
-							<br>
-							<img src="/assets/cage.gif" class="cityIMG">
-							<br>
-						</div>	
-						<div class="col-sm-4">
-							<img src="/assets/cage.gif" class="cityIMG">
-							<br>
-							<img src="/assets/cage.gif" class="cityIMG">
-							<br>
-							<img src="/assets/cage.gif" class="cityIMG">
+							<img src="<%= city.cityimgs.first.url %>" class="cityIMG">
 							<br>
 						</div>
-						<div class="col-sm-4">
-							<img src="/assets/cage.gif" class="cityIMG">
-							<br>
-							<img src="/assets/cage.gif" class="cityIMG">
-							<br>
-							<img src="/assets/cage.gif" class="cityIMG">
-							<br>
-						</div>
+						<% end %>
 					</div>
 					<div class="about row">
 						<div class="aboutus col-sm-12 text-center">

@@ -7,8 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #cities
 miami =	City.create(name: "Miami", description: "Very cool, warm beach town with a great startup culture blahaboalh")
+pittsburgh = City.create(name: "Pittsburgh", description: "Cold, angry town in PA")
 #city images
 miami.cityimgs.create(url: "/assets/miami1.jpg")
+pittsburgh.cityimgs.create(url: "/assets/pittsburgh.jpg")
 #neighborhoods
 brickell = miami.neighborhoods.create(name: "Brickell", description: "Dat miami neighborhood")
 coconutGrove = miami.neighborhoods.create(name: "Coconut Grove", description: "Dat miami neighborhood")
@@ -22,3 +24,5 @@ wynwood.neighborhoodimgs.create(url: "/assets/wynwood.jpg")
 #bootcamps
 ironhack = Bootcamp.create(name: "Ironhack", description: "Sweet Miami bootcamp for bros")
 miami.bootcamps.push(ironhack)
+#bootcampimgs
+ironhack.bootcampimgs.create(url: 'assets/cage.jpg')
