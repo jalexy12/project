@@ -48,7 +48,7 @@ var App = React.createClass({
             <div>
                 {this.state.data.map(function (city) {
                     return (
-                        <Card key={city.id} onClick={that.deleteCity.bind(null, city)} name={city.name} description={city.description} image={city.image}></Card>
+                        <Card key={city.id} onClick={that.deleteCity.bind(null, city)} name={city.name} description={city.description} image={city.neighborhoodimgs.url}></Card>
                     )
                 }, this)}
             </div>

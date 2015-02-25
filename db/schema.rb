@@ -11,10 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150224154157) do
+ActiveRecord::Schema.define(version: 20150224224428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bootcampimgs", force: :cascade do |t|
+    t.string   "url"
+    t.integer  "bootcamp_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "bootcamps", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "bootcamps_cities", id: false, force: :cascade do |t|
+    t.integer "bootcamp_id", null: false
+    t.integer "city_id",     null: false
+  end
+
+  add_index "bootcamps_cities", ["bootcamp_id", "city_id"], name: "index_bootcamps_cities_on_bootcamp_id_and_city_id", using: :btree
+  add_index "bootcamps_cities", ["city_id", "bootcamp_id"], name: "index_bootcamps_cities_on_city_id_and_bootcamp_id", using: :btree
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -25,12 +47,26 @@ ActiveRecord::Schema.define(version: 20150224154157) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "cityimgs", force: :cascade do |t|
+    t.string   "url"
+    t.integer  "city_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "neighborhoodimgs", force: :cascade do |t|
+    t.string   "url"
+    t.integer  "neighborhood_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   create_table "neighborhoods", force: :cascade do |t|
     t.string   "name"
-    t.string   "image"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "city_id"
   end
 
 end
