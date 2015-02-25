@@ -1,0 +1,40 @@
+// Place all the styles related to the site controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+html *
+{
+   font-size: 1.0em;
+   color: #000;
+   font-family: Arial;
+}
+
+body{
+	/*background-color: #EBF2F5;*/
+	font-size: 1.0em;
+	background: linear-gradient(to bottom right, #D0E9F2 , #F0E6F5);
+}
+.contentcontainer{
+	background: linear-gradient(to bottom right, #D0E9F2 , #D3EEF0);
+}
+.share{
+	float: right;
+}
+.bootcampIMG{
+	margin-top: 7px;
+	margin-bottom: 7px;
+	height: 200px;
+	width: 200px;
+}
+.cityIMG{
+	margin-bottom: 7px;
+	height: 200px;
+	width: 200px;
+}
+.cities{
+	margin-top: 50px;
+}
+.properties{
+	font-size: 1.1em;
+}
+

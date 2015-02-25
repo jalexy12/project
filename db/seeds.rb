@@ -6,10 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-miami =	City.create(name: "Miami", image: "miami1.jpg", description: "Very cool, warm beach town with a great startup culture blahaboalh", bootcamps: "Ironhack")
+miami =	City.create(name: "Miami", description: "Very cool, warm beach town with a great startup culture blahaboalh")
 
 
-
+miami.cityimgs.create(url: "/assets/miami1.jpg")
 brickell = miami.neighborhoods.create(name: "Brickell", description: "Dat miami neighborhood")
 coconutGrove = miami.neighborhoods.create(name: "Coconut Grove", description: "Dat miami neighborhood")
 designDistrict = miami.neighborhoods.create(name: "Design District", description: "Dat miami neighborhood")

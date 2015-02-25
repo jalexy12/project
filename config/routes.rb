@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'site#home'
+  get '/search' => "site#search"
   resources :cities
   resources :neighborhoods
   # The priority is based upon order of creation: first created -> highest priority.

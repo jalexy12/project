@@ -1,0 +1,24 @@
+<div class="search">
+	<%= form_tag(search_path, method: 'get', class: 'navbar-form navbar-left', role: 'search') do %>
+	  <%= label_tag(:q, "Search for:") %>
+	  <%= text_field_tag(:q) %>
+	  <button type="Submit">Search</button>
+	<% end %>	
+</div>
+<br>
+<br>
+<div class="properties">
+ 		
+<ul>
+	<% @properties.each do |property| %>
+		<li>
+			<h3><%= property['title'] %></h3>
+			<img src="<%= (property['thumbnail']) %>"><br>
+			<a href="<%= property['url'] %>">Link to Property</a><br>
+			<strong>$<%= property['price'] %></strong>
+			<strong>Number of rooms: <%= property['num_rooms'] %>----Maximum People: <%= property['max_guests'] %>-----Minimum stay length: <%= property['min_stay'] %></strong>
+
+		</li>
+	<% end %>
+</ul>
+</div>
