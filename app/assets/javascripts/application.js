@@ -15,4 +15,7 @@
 //= require turbolinks
 //= require showdown
 //= require react
+//= require components
+//= require react_ujs
+
 //= require_tree .

@@ -1,0 +1,40 @@
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "./site";
+@import "./cities";
+@import "./scaffolds";
+@import "./bootcamps";
+@import "./neighborhoods";
+
+
+ * {
+ 	font-family: sans-serif;
+ }
+ .heading{
+	color: white;
+ 	width: 100%;
+ 	margin-bottom: 10px;
+ }
+ .neighborhoods{
+ 	text-align: center;
+ }
+ .navcontainer{
+ 	background-color: black;
+ 
+ }
+ .navcontainer > *{
+
+ }
+ .nav  * {
+ 	color: white;
+ }
+ .search *{
+ 	color: white;
+ }
+ .heading{
+ 	background-color: black;
+ 	color: white;
+ 	width: 100%;
+ 	margin: auto;
+ }
