@@ -1,10 +1,7 @@
 // Place all the styles related to the Cities controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body{
-	/*background-color: #EBF2F5;*/
-	background: linear-gradient(to bottom right, #D0E9F2 , #F0E6F5);
-}
+
 .name{
 }
 .cityname{
@@ -17,7 +14,7 @@ body{
 	margin-bottom: 70px;
 }
 .img{
-	margin-bottom: 10px
+	
 }
 
 .about{
@@ -34,8 +31,11 @@ body{
 .neighborhoodimg{
 	margin-bottom: 4px;
 }
-.cityimage {
-	
+.cityimage {	
   background-attachment: fixed;
   overflow: hidden;
+}
+.contentcontainer > *{
+	margin-left: 100px;
+	margin-right: 100px;
 }

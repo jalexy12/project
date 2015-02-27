@@ -42,26 +42,25 @@
 			<div class="bannercontainer container-fluid">
 				<div class="bannerrow row">
 					<div class="mainbanner">
-						<img src="/assets/mainbanner.jpg" width="100%" height="400">
+						<img src="/assets/bannerad.png" width="100%" height="400">
 					</div>
-					<div class="text-center row"><h2 class="heading"> Available Cities</h2></div>
 				</div>
 			</div>
-				<div class="contentcontainer container">
+				<div class="contentcontainer container-fluid">
 					<div class="cities row">
+						<div class="cityheading text-center row"><span class="label label-default headinglabel"> Available Cities</span></div>
 						<% @cities.each do |city| %>
-						<div class="cityheading"><small> <%= link_to(city.name, city_path(city))  %> </small></div>
-						<div class="col-sm-4">
+						<div class="cityheading text-center col-sm-4"> <%= link_to(city.name, city_path(city))  %> <br>
 							<img src="/assets/<%= city.cityimgs.first.url %>" class="cityIMG">
 						</div>
 						<% end %>
+						<div class="col-sm-4"></div>
 					</div>
 					<div class="bootcamps row">
+					<div class="bootcampheading row text-center"><span class="label label-default headinglabel">Check out some bootcamps...</span></div>
 						<% @bootcamps.each do |bootcamp| %>
-						<% if bootcamp.bootcampimgs != nil %>
-						<div class="bootcampheading row heading">Check out some bootcamps...</div>
-						<div class="bootcampheading"><small> <%= link_to(bootcamp.name, bootcamp_path(bootcamp))  %> </small></div>
-						<div class="col-sm-4">
+						<% if bootcamp.bootcampimgs != nil %>						
+						<div class="bootcamp text-center col-sm-4"> <%= link_to(bootcamp.name, bootcamp_path(bootcamp))  %><br> 
 							<img src="/assets/<%= bootcamp.bootcampimgs.first.url %>" class="cityIMG">
 						</div>
 						<% end %>
@@ -76,7 +75,7 @@
 					</div>
 					<div class="mission row">
 						<div class="missionstatement col-sm-12 text-center">
-							<h1 class="heading">Our goals</h1>
+							<h1 class="heading">Our goals: </h1>
 							<br>
 							"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 						</div>

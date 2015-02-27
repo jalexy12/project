@@ -11,10 +11,15 @@
  * {
  	font-family: sans-serif;
  }
+ body{
+ 	background-color: #F7F5FA;
+ }
  .heading{
+ 	background-color: black;
+ 	margin: auto;
 	color: white;
  	width: 100%;
- 	margin-bottom: 10px;
+ 	
  }
  .neighborhoods{
  	text-align: center;
@@ -33,8 +38,5 @@
  	color: white;
  }
  .heading{
- 	background-color: black;
- 	color: white;
- 	width: 100%;
- 	margin: auto;
+ 	
  }

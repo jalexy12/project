@@ -9,14 +9,6 @@ html *
    
 }
 
-body{
-	/*background-color: #EBF2F5;*/
-	font-size: 1.0em;
-	background: linear-gradient(to bottom right, #D0E9F2 , #F0E6F5);
-}
-.contentcontainer{
-	background: linear-gradient(to bottom right, #D0E9F2 , #D3EEF0);
-}
 .share{
 	float: right;
 }
@@ -29,11 +21,36 @@ body{
 	margin-bottom: 7px;
 	height: 200px;
 	width: 200px;
+	border-radius: 150px;
+
 }
 .cities{
-	margin-top: 50px;
+	font-size: 16px;
+	border-style: groove;
+	border-top-style: none;
+	border-radius: 2.5px;
+	
 }
 .properties{
 	font-size: 1.1em;
 }
+.bootcampheading{
+	margin-bottom: 30px;
+}
+.cityheading{
+	margin-bottom: 30px;
+}
+.headinglabel{
+	font-size: 22px;
+	background-color: #E5DCF2;
+	color: #43276E;
+	border-style: groove;
 
+}
+
+.bootcamps{
+	font-size: 16px;
+	border-style: groove;
+	border-top-style: none;
+	border-radius: 2.5px;
+}
