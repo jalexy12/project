@@ -2,6 +2,8 @@ require 'json'
 
 class SiteController < ApplicationController
 	def home
+		@cities = City.all
+		@bootcamps = Bootcamp.all
 	end
 	def search
 		client = RoomoramaApi::Client.new 'Z2YSZoQxGQyGCIJTnRuec4fFbbG1Jirn5GigXp1mgRo'

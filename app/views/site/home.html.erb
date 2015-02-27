@@ -49,12 +49,22 @@
 			</div>
 				<div class="contentcontainer container">
 					<div class="cities row">
-						<% @cities = City.all %>
 						<% @cities.each do |city| %>
-						<div class="cityheading"><small> <%= city.name %> </small></div>
+						<div class="cityheading"><small> <%= link_to(city.name, city_path(city))  %> </small></div>
 						<div class="col-sm-4">
-							<img src="<%= city.cityimgs.first.url %>" class="cityIMG">
+							<img src="/assets/<%= city.cityimgs.first.url %>" class="cityIMG">
 						</div>
+						<% end %>
+					</div>
+					<div class="bootcamps row">
+						<% @bootcamps.each do |bootcamp| %>
+						<% if bootcamp.bootcampimgs != nil %>
+						<div class="bootcampheading row heading">Check out some bootcamps...</div>
+						<div class="bootcampheading"><small> <%= link_to(bootcamp.name, bootcamp_path(bootcamp))  %> </small></div>
+						<div class="col-sm-4">
+							<img src="/assets/<%= bootcamp.bootcampimgs.first.url %>" class="cityIMG">
+						</div>
+						<% end %>
 						<% end %>
 					</div>
 					<div class="about row">

@@ -1,18 +1,26 @@
+    <!--Angularjs 1.2.25-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <!--Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script> 
 <p id="notice"><%= notice %></p>
-<div class="cityimage col-sm-12"><%= image_tag(@city.image) %></div>
+<% @image = @city.cityimgs.first %>
+<div class="cityimage col-sm-12"><%= image_tag(@image.url) %><header><h1><%= @city.name %></h1></header></div>
+<div class="cityname col-sm-12 text-center"><%= @city.name %></div>
 <div class="citycontainer container">
+	<div class="headingrow row text-center">
+		<div class="cityname col-sm-7"></div>
+		<div class="col-sm-5"></div><br>
+	</div>
 	<div class="name row">
-		<div class='col-sm-4 neighborhoods' id="neighborhoods">
+		<div class='col-sm-7 neighborhoods text-center' id="neighborhoods">
+			 <div id="map"></div>
 		</div>
-		<div class="cityInfo text-center col-sm-4">
-			<div class="cityname"><%= @city.name %></div><br>
-			<div class="bootcamps">Bootcamps available in this city:<br><br>
+		<div class="cityInfo text-center col-sm-5">
+			<div class="bootcamps"><span class="heading">Bootcamps available in this city:</span><br><br>
 			</div>
-			<div class="about">About<br><br>
+			<div class="about"><span class="heading">About</span><br><br>
 				<%= @city.description %>
 			</div>
-		</div>
-		<div class='col-sm-4'>
 		</div>
 	</div>
 	<div class="description row">
@@ -33,4 +41,157 @@
 		<div class='col-sm-4'>
 		</div>
 	</div>
+	<style>
+	    #map
+    {
+        width: 75% !important;
+        height:75% !important;
+        display: block;
+        min-height: 300px;
+    }
+    </style>
+    </head>
+	 <script>
+    //create the mainApp
+	var app = angular.module('mainApp',[]);
+		      app.controller('mainCtrl',['$scope','aboutPlaceApi',function($scope,aboutPlaceApi){
+
+
+    var bounds;
+    var mapOptions ={
+    zoom:13,
+    center: new google.maps.LatLng(25.7890972,-80.2040435),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    map = new google.maps.Map(document.getElementById('map'),mapOptions);
+    //1. Add event listener to the map
+    google.maps.event.addListener(map, 'click', function (event) {
+
+
+    var lat = event.latLng.lat()
+    var lng = event.latLng.lng()
+    //console.log(lat,lng);
+    var myLatlng = new google.maps.LatLng(lat,lng);
+    if(window.marker){
+    marker.setMap(null);
+    }
+    marker = new google.maps.Marker({
+    position: myLatlng
+    });
+    marker.setMap(map);
+
+
+    aboutPlaceApi.getPlace(lat,lng).then(function(data){
+    //console.log(data.placeshape);
+
+
+
+    aboutPlaceApi.convertGoogle(data.placeshape).then(function(coords){
+
+    aboutPlaceApi.getVibe(data.placeid).then(function(response,marker){
+    //simple info window for displaying our findings when the user clicks on a pin
+                                        contentString = "<div id='content' class='mapContentPopover'>" +
+                                        "<h1>" + data.placename + "</h1>" +
+                                        "<h3>" + response.topVibes + "</h3>" +
+                                        "</div>";
+
+    //Define a google info popover box
+    infowindow = new google.maps.InfoWindow({
+    content: contentString,
+    maxWidth: 400
+    });
+    infowindow.open(map, this.marker);
+
+
+    })
+    //remove previous shape from the screen
+    if(window.PLACEshape){
+    console.log("PLACEshape exists")
+    PLACEshape.setMap(null);
+    }
+    // Construct the polygon.
+    PLACEshape = new google.maps.Polygon({
+    paths: coords.convertedCoords, //notice we simply have to pull the shape from our PLACE object that aboutPLACE sent earlier
+    strokeColor: '#56A2A2',
+    strokeOpacity: 0.5,
+    strokeWeight: 2,
+    fillColor: '#56A2A2',
+    fillOpacity: 0.35
+    });
+
+    PLACEshape.setMap(map);
+
+
+    })
+
+
+
+
+    })
+
+    });
+
+    }])
+     app.factory('aboutPlaceApi',function($http,$q){
+    return{
+    //get placeid and shape of the PLACE
+    getPlace: function (lat, lng) {
+    var defered = $q.defer();
+    $http.get('http://mashery.about.place/address/reverse/neighborhood/'+lng+','+lat+'?api_key=uahxjwn36aj8s6sk9g74xrbu')
+        .success(function(response){
+            console.log(response);
+        defered.resolve({
+            placeid : response[0].neighborhood.placeid,
+            placeshape : response[0].neighborhood.shape.coordinates[0][0],
+            placename : response[0].neighborhood.name
+        });
+
+    })
+    return defered.promise
+
+    },
+
+
+
+    //Convert returned coordinates to Google format
+    convertGoogle: function(returnedCoordinates){
+        var defered = $q.defer();
+        var loc_coords = []
+        for(i=0; i < returnedCoordinates.length; i++){
+        x = new google.maps.LatLng(returnedCoordinates[i][1],returnedCoordinates[i][0])
+        loc_coords.push(x);
+
+    }
+        defered.resolve({convertedCoords:loc_coords})
+        return defered.promise
+    },
+
+    getVibe: function(placeid){
+        var defered = $q.defer();
+        $http.get('https://api.about.place/place/'+placeid+'/vibe?api_key=uahxjwn36aj8s6sk9g74xrbu')
+            .success(function(response){
+            defered.resolve({
+                topVibes : response.topvibes.join(", ")
+            });
+        })
+        return defered.promise
+
+    }
+
+
+    }
+
+    });
+
+                
+
+		
+    </script>
+                   
+
+       
+    
+
+
+
 </div>

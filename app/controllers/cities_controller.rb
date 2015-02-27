@@ -11,6 +11,7 @@ class CitiesController < ApplicationController
   # GET /cities/1
   # GET /cities/1.json
   def show
+    @city = City.find_by(id: params[:id])
   end
 
   # GET /cities/new
