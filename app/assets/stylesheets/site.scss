@@ -9,14 +9,20 @@ html *
    
 }
 
+
 .contentcontainer{
 	margin-top: 50px;
 	margin-left: 100px;
 	margin-right: 100px;
+	background-color: white;
 }
 .navcontainer{
 	margin-top: -50px;
 	background-color: inherit;
+}
+.navrow{
+	margin-left: 10%;
+	margin-right: 10%;
 }
 
 .share{
@@ -45,6 +51,7 @@ html *
 }
 .cityheading{
 	margin-bottom: 30px;
+	background-color: #EDF6F7;
 }
 
 .bootcamps{
@@ -91,6 +98,14 @@ html *
 .topnav h2{
 	z-index: 100;
 	width: 100%;
+}
+.sitesidenote{
+	z-index: 100;
+	top: 60%;
+	left: 40%;
+	position: absolute;
+	color: white;
+	font-size: 18px;
 }
 .about{
 	align: center;
