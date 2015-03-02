@@ -39,7 +39,7 @@
 			<% @bootcamps.each do |bootcamp| %>
 			<% if bootcamp.bootcampimgs != nil %>
 			<div class="cityheading text-center col-sm-4"> <%= link_to(bootcamp.name, bootcamp_path(bootcamp))  %><br>
-				<img src="/assets/<%= bootcamp.bootcampimgs.first.url %>" class="cityIMG">
+				<%= image_tag(bootcamp.bootcampimgs.first.url, class: "cityIMG") %>
 			</div>
 			<% end %>
 			<% end %>
@@ -48,25 +48,10 @@
 			<div class="cityheading text-center row"><span class=" headinglabel"> Available Cities</span></div>
 				<% @cities.each do |city| %>
 			<div class="cityheading text-center col-sm-4"> <%= link_to(city.name, city_path(city))  %> <br>
-				<img src="/assets/<%= city.cityimgs.first.url %>" class="cityIMG">
+				<%= image_tag(city.cityimgs.first.url, class: "cityIMG") %>
 			</div>
 			<% end %>
 			<div class="col-sm-4"></div>
-		</div>
-	
-		<div class="about row">
-			<div class="aboutus col-sm-12 text-center">
-				<h1 class="heading">About us: </h1>
-				<br>
-				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-			</div>
-		</div>
-		<div class="mission row">
-			<div class="missionstatement col-sm-12 text-center">
-				<h1 class="heading">Our goals: </h1>
-				<br>
-				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-			</div>
 		</div>
 		<div class="socialmedia row">
 			<div class="share col-sm-8">
