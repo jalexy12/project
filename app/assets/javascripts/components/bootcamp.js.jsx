@@ -22,8 +22,14 @@ var BootcampBox = React.createClass({
      console.log(this.state)
     return (
       <div className="Bootcamps">
-        <h1>Bootcamps</h1>
-        <BootcampList data={this.state.data} />
+        <div className="bootcampsdata">
+          <div className="headingrow text-center">
+            <h2 className="heading">Bootcamps</h2>
+          </div>
+          <div className="bootcampdata row text-center">
+            <BootcampList data={this.state.data} />
+          </div>
+          </div>
       </div>
     );
   }
@@ -31,12 +37,13 @@ var BootcampBox = React.createClass({
 var Bootcamp = React.createClass({
   render: function() {
     return (
-      <div className="bootcamp">
+      <div className="bootcamp col-sm-4">
         <h2 className="bootcampName">
           {this.props.name}
         </h2>
-        <h5>{this.props.description}</h5>
-        {this.props.cities}
+        {this.props.description}
+        <br />
+        <img className="cityIMG" src={this.props.image} />
       </div>
     );
   }
@@ -49,13 +56,13 @@ var BootcampList = React.createClass({
         // `key` is a React-specific concept and is not mandatory for the
         // purpose of this tutorial. if you're curious, see more here:
         // http://facebook.github.io/react/docs/multiple-components.html#dynamic-children
-        <Bootcamp name={bootcamp.name} description={bootcamp.description} cities={bootcamp.cities} key={index}>
-          
+        <Bootcamp name={bootcamp.name} description={bootcamp.description} image={"/assets" + bootcamp.bootcampimgs[0].url} key={index}>
+      
         </Bootcamp>
       );
     });
     return (
-      <div className="BootcampList col-sm-4">
+      <div>
         {bootcampNodes}
       </div>
     );

@@ -8,6 +8,12 @@ html *
    color: #000;
    
 }
+.navcontainer li{
+	color: white;
+}
+.navcontainer li a:visited{
+	color: white;
+}
 
 .share{
 	float: right;
@@ -42,11 +48,10 @@ html *
 }
 .headinglabel{
 	font-size: 22px;
-	background-color: #E5DCF2;
-	color: #43276E;
-	border-style: groove;
+	margin-top: 20px;
 
 }
+
 
 .bootcamps{
 	font-size: 16px;
