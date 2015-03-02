@@ -1,3 +1,12 @@
-<div id="maincontent" class="container">
 
+<div id="maincontent" class="container">
+		<div class="row">
+				<% @bootcamps.each do |bootcamp| %> 
+					<div class="col-sm-4 bootcamp text-center">
+						<h2 class="heading"><%= link_to(bootcamp.name, bootcamp_path(bootcamp)) %></h2><br>
+						<%= bootcamp.description %><br>
+						<%= image_tag(bootcamp.bootcampimgs.first.url, class: "cityIMG") %>
+					</div>
+				<% end %>
+		</div>
 </div>

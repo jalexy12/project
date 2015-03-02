@@ -10,14 +10,13 @@ html *
 }
 
 .contentcontainer{
+	margin-top: 50px;
 	margin-left: 100px;
 	margin-right: 100px;
 }
-.navcontainer li{
-	color: white;
-}
-.navcontainer li a:visited{
-	color: white;
+.navcontainer{
+	margin-top: -50px;
+	background-color: inherit;
 }
 
 .share{
@@ -30,37 +29,104 @@ html *
 }
 .cityIMG{
 	margin-bottom: 7px;
-	height: 200px;
-	width: 200px;
-	border-radius: 150px;
+	height: 250px;
+	width: 250px;
+	border-radius: 50px;
 
 }
 .cities{
 	font-size: 16px;
 	border-style: groove;
-	border-top-style: none;
 	border-radius: 2.5px;
 	
 }
 .properties{
 	font-size: 1.1em;
 }
-.bootcampheading{
-	margin-bottom: 30px;
-}
 .cityheading{
 	margin-bottom: 30px;
 }
-.headinglabel{
-	font-size: 22px;
-	margin-top: 20px;
-
-}
-
 
 .bootcamps{
 	font-size: 16px;
 	border-style: groove;
-	border-top-style: none;
 	border-radius: 2.5px;
+}
+.headingbanner{
+	width: 100%;
+	height: 50em;
+}
+.headingwrapper{
+	display: table;
+  width: 100%;
+  top: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
+  background-position: center top;
+  height: 50em;
+  color: white;
+  position: absolute;
+
+}
+.siteheading{
+	color: white;
+	font-size: 48px;
+	top: 50%;
+	left: 30%;
+	z-index: 100;
+	position: absolute;
+
+}
+.submitsearch{
+	background-color: transparent;
+	
+}
+.topnav{
+	position: absolute;
+	z-index: 100;
+	top: 20px;
+	right: 10%;
+	left: 10%;
+	width: 100%;
+}
+.topnav h2{
+	z-index: 100;
+	width: 100%;
+}
+.about{
+	align: center;
+	color: white;
+}
+.realtors{
+}
+.ghostbutton {
+  width: auto;
+  padding: 8px;
+  color: #fff;
+  background-color: transparent;
+  border: 2px solid #fff;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+  transition: color 0.3s ease-out,
+              background-color 0.3s ease-out,
+              border-color 0.3s ease-out;
+}
+.ghostbutton:hover,
+.ghostbutton:active {
+  background-color: #9363c4;
+  border-color: #9363c4;
+  color: #fff;
+  transition: color 0.3s ease-in,
+              background-color 0.3s ease-in,
+              border-color 0.3s ease-in;
+   }
+
+.signin{
+	margin-bottom: 10px;
+	width: 100%;
+}
+.cityIMGsmall{
+	width: 100%;
+	height: 25px;
+
 }
