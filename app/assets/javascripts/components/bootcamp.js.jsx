@@ -38,8 +38,7 @@ var Bootcamp = React.createClass({
   render: function() {
     return (
       <div className="bootcamp col-sm-4">
-        <h2 className="bootcampName">
-          {this.props.name}
+        <h2 className="bootcampName heading">
         </h2>
         {this.props.description}
         <br />
