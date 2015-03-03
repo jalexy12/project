@@ -14,4 +14,6 @@ class SiteController < ApplicationController
 		p searchproperties['pagination']
 		# IO.write('properties.json', @searchproperties.to_json)
 	end
+	def about
+	end
 end

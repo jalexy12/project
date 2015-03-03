@@ -16,14 +16,14 @@
 			<div class="col-sm-4"></div>
 		</div>
 		<div class="bccities row">
-			<!-- <div class="col-sm-4"></div> -->
+			<div class="col-sm-4"></div>
 			<% @bootcamp.cities.each do |city| %>
 				<div class="cityinfo col-sm-4">
 					<div class="row text-center"><h2 class="heading"><%= city.name %></h2></div><br>
 					<div class="row text-center"><%= image_tag(city.cityimgs.first.url, class: "cityIMG") %></div>
 				</div>
 			<% end %>
-			<!-- <div class="col-sm-4"></div> -->
+			<div class="col-sm-4"></div>
 		</div>
 		<script type="javascript">
 		markers = handler.addMarkers(<%=raw @hash.to_json %>);

@@ -9,5 +9,8 @@ class BootcampsController < ApplicationController
   			marker.lng bootcamp.lon
 		end
 	end
+	def new
+		@bootcamp = Bootcamp.new
+	end
 
 end

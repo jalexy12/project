@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'site#home'
   get '/search' => "site#search"
+  get 'about' => "site#about"
   resources :cities
   resources :neighborhoods
   resources :bootcamps

@@ -2,10 +2,10 @@
 	<div class="bannerrow row">
 		<div class="topnav container-fluid">
 			<div class="col-sm-4 bootcampfeature">
-				<a href="#" class="ghostbutton">Bootcamps, want to be featured?</a>
+				<%= link_to('Register your bootcamp', new_bootcamp_path, class: "ghostbutton") %></a>
 			</div>
 			<div class="col-sm-4 about">
-				<a href="#" class="ghostbutton">About</a>
+				<a href="/about" class="ghostbutton">About</a>
 			</div>
 			<div class="col-sm-4 realtors"><%= link_to( 'Register a property', new_property_path, class: "ghostbutton") %></div>
 		</div>

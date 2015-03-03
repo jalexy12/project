@@ -1,0 +1,8 @@
+<div class="formcontainer container">
+<%= bootstrap_form_for(@bootcamp) do |f| %>
+  <%= f.text_field :name %>
+ 
+  <%= f.text_field :description %>
+  	<%= f.submit "Submit your bootcamp"%>
+<% end %>
+</div>
