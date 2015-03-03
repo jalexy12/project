@@ -12,7 +12,7 @@ gem 'uglifier', '>= 1.3.0'
 gem "rubillow"
 
 gem 'roomorama_api'
-
+gem 'underscore-rails'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'react-rails', github: 'reactjs/react-rails', branch: 'master'
@@ -27,7 +27,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'certified'
 gem 'rails_12factor', group: :production
-
+gem 'gmaps4rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

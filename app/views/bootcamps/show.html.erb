@@ -1,0 +1,41 @@
+<div class="bootcampcontainer container">
+		<div class="heading row">
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4 bootcampname">
+					<h1 class="heading text-center"><%= @bootcamp.name %></h1>
+			</div>
+			<div class="col-sm-4"></div>
+		</div>
+		<br>
+		<div class="about row">
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4 bootcampname">
+			<h2 class="heading text-center">About this bootcamp:</h2><br>
+					<h4 class="description text-center"><%= @bootcamp.description %></h4>
+			</div>
+			<div class="col-sm-4"></div>
+		</div>
+		<div class="bccities row">
+			<% @bootcamp.cities.each do |city| %>
+				<div class="cityinfo col-sm-4">
+					<div class="row text-center"><h2 class="heading"><%= city.name %></h2></div><br>
+					<div class="row text-center"><%= image_tag(city.cityimgs.first.url, class: "cityIMG") %></div>
+				</div>
+			<% end %>
+		</div>
+		<div class="bcmap row">
+			<% @bootcamp.cities.each do |city| %>
+			<div class="cityinfo col-sm-4">
+				<div class="row text-center"><h2 class="heading"><%= city.name %></h2></div><br>
+				<div class="row text-center"><%= image_tag(city.cityimgs.first.url, class: "cityIMG") %></div>
+			</div>
+			<% end %>
+		</div>
+		<div class="attend row">
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4 text-center"><button class="btn btn-primary">Interested in attending?</button>
+				<button class="btn btn-warning">Who else needs housing?</button>
+			</div> 
+			<div class="col-sm-4"></div>
+		</div>
+</div>

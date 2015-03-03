@@ -7,7 +7,7 @@
 			<div class="col-sm-4 about">
 				<a href="#" class="ghostbutton">About</a>
 			</div>
-			<div class="col-sm-4 realtors"><a href="#" class="ghostbutton">Realtors, list your space</a></div>
+			<div class="col-sm-4 realtors"><%= link_to( 'Open Popup-Window', bootcamps_path, :onclick => 'return openPopup(this);', class: "ghostbutton") %></div>
 		</div>
 		<div class="mainbanner">
 			<%= image_tag("mainbanner.jpg", class: "headingbanner") %>

@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150224224428) do
+ActiveRecord::Schema.define(version: 20150303005453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bootcampcoords", force: :cascade do |t|
+    t.string   "city"
+    t.integer  "lat"
+    t.integer  "lon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "bootcampimgs", force: :cascade do |t|
     t.string   "url"
