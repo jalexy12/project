@@ -4,6 +4,7 @@ class SiteController < ApplicationController
 	def home
 		@cities = City.all
 		@bootcamps = Bootcamp.all
+		@property = Property.new
 	end
 	def search
 		client = RoomoramaApi::Client.new 'Z2YSZoQxGQyGCIJTnRuec4fFbbG1Jirn5GigXp1mgRo'

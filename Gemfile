@@ -10,7 +10,7 @@ gem 'pg'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem "rubillow"
-
+gem 'bootstrap_form', github: 'bootstrap-ruby/rails-bootstrap-forms'
 gem 'roomorama_api'
 gem 'underscore-rails'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes

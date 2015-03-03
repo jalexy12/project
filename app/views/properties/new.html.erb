@@ -1,0 +1,15 @@
+<div class="formcontainer container">
+<%= bootstrap_form_for(@property) do |f| %>
+  <%= f.text_field :agent %>
+  <%= f.text_field :city %>
+  <%= f.text_field :link %>
+  <%= f.text_field :bootcamp %>
+  <% bootcampslist = [] %>
+  <% @bootcamps.map do |bootcamp| %>
+ 	<% bootcampslist.push(bootcamp.name) %>
+	<% end %>
+ 	<%= f.select :bootcamp, options_for_select([bootcampslist[0]..bootcampslist[10]]) %>
+ 
+	<%= f.submit "Submit real estate for approval"%>
+<% end %>
+</div>

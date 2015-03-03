@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/bootstrap-ruby/rails-bootstrap-forms.git
+  revision: 49684f58fabda7ff5349a414b5b469bc1a898459
+  specs:
+    bootstrap_form (2.3.0)
+
+GIT
   remote: git://github.com/reactjs/react-rails.git
   revision: ac4320eb183b948ec328a695cd54d27c769073af
   branch: master
@@ -186,6 +192,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass
+  bootstrap_form!
   byebug
   certified
   gmaps4rails
