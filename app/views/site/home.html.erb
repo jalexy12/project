@@ -23,9 +23,9 @@
 					<li><a href="#" class="ghostbutton signin">Sign in <span class="sr-only">(current)</span></a></li>
 				</ul>
 			</div>
-			<div class="col-sm-4">
+			<div class="col-sm-4 search">
 				<ul class="nav navbar-nav">
-					<li class="active searchli">
+					<li class="active searchli row">
 						<div class="form-group search">
 							<%= form_tag(search_path, method: 'get', class: 'navbar-form navbar-left', role: 'search') do %>
 							<%= text_field_tag(:q) %>
@@ -56,16 +56,19 @@
 			</div><!-- /.container-fluid -->
 		</nav>
 	</div>
+
 	<div class="contentcontainer container-fluid">
 		<div class="bootcamps row">
-			<div class="cityheading row text-center"><span class="heading">Check out some bootcamps...</span></div>
+			<div class="col-sm-12 bootcampcontainer">
+			<div class="bootcampheading row text-center"><h2 class="majorheading">Check out some bootcamps</h2><h4 class="minorheading">Learn the skills you need, faster.</h4></div>
 			<% @bootcamps.each do |bootcamp| %>
 			<% if bootcamp.bootcampimgs != nil %>
-			<div class="cityheading text-center col-sm-4"> <%= link_to(bootcamp.name, bootcamp_path(bootcamp))  %><br>
+			<div class="bootcamphome text-center col-sm-4"> <h2 class="heading"><%= link_to(bootcamp.name, bootcamp_path(bootcamp))  %></h2><br>
 				<%= image_tag(bootcamp.bootcampimgs.first.url, class: "cityIMG") %>
 			</div>
 			<% end %>
 			<% end %>
+			</div>
 		</div>
 		<div class="properties row">
 			<div class="cityheading text-center row"><span class=" heading"> Popular Properties</span></div>			

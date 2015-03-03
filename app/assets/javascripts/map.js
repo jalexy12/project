@@ -3,8 +3,7 @@ function initialize() {
 handler = Gmaps.build('Google');
 handler.buildMap({
     provider: {
-      disableDefaultUI: true
-      // pass in other Google Maps API options here
+      disableDefaultUI: true,
     },
     internal: {
       id: 'map'
@@ -13,18 +12,19 @@ handler.buildMap({
   function(){
     markers = handler.addMarkers([
       {
-        "lat": 0,
-        "lng": 0,
+        "lat": 47.6220217,
+        "lng": -122.3358359,
         "picture": {
-          "url": "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
+          "url": "/assets/mapmarker.png",
           "width":  36,
           "height": 36
         },
-        "infowindow": "hello!"
       }
     ]);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
+    handler.getMap().setZoom(14);
+
   }
 );
 }

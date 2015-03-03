@@ -49,15 +49,17 @@ html *
 .properties{
 	font-size: 1.1em;
 }
-.cityheading{
+.bootcampheading{
 	margin-bottom: 30px;
-	
+	background-color: black;
 }
 
 .bootcamps{
 	font-size: 16px;
-	border-style: groove;
-	border-radius: 2.5px;
+	// border-style: groove;
+	// border-radius: 5.5px;
+	// border-color: black;
+	box-shadow: 10px 10px 10px 5px #888888;
 }
 .headingbanner{
 	width: 100%;
@@ -66,7 +68,7 @@ html *
 .headingwrapper{
 	display: table;
   width: 100%;
-  top: 100;
+  top: 0;
   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
   background-position: center top;
   height: 50em;
@@ -145,3 +147,43 @@ html *
 	height: 25px;
 
 }
+.bootcampcontainer{
+	background-color: #c0c8fd;
+}
+.bootcamphome{
+	margin-bottom: 20px;
+	background-color: white;
+	margin-left: 6px;
+	margin-right: 6px;
+	margin-top: 6px;
+	margin-bottom: 15px;
+	width: 30%;
+	border-radius: 50px;
+	border-style: groove;
+	border-width: 2px;
+	border-color: black;
+	z-index: 100;
+	box-shadow: 10px 10px 5px #888888;
+
+}
+.majorheading{
+	font-size: 1.4em;
+	color: white;
+}
+.minorheading{
+	font-size: 0.8em;
+	color: white;
+}
+.bootcampcities{
+	margin-bottom: 4px;
+	width: 80%;
+}
+.smallstuff{
+	font-size: 0.6em;
+}
+.searchli{
+	margin-top: -50px;
+}
+ .search{
+ 	color: white;
+ }
