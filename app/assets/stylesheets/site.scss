@@ -79,7 +79,7 @@ html *
 .siteheading{
 	color: white;
 	font-size: 48px;
-	top: 50%;
+	top: 25%;
 	left: 30%;
 	z-index: 100;
 	position: absolute;
@@ -103,7 +103,7 @@ html *
 }
 .sitesidenote{
 	z-index: 100;
-	top: 60%;
+	top: 36%;
 	left: 40%;
 	position: absolute;
 	color: white;
@@ -186,4 +186,11 @@ html *
 }
  .search{
  	color: white;
+ }
+ .missionheading{
+ 	margin-bottom: 30px;
+ 	background-color: #B0A3D1;
+ }
+ .mission{
+ 	margin-top: 100px;
  }

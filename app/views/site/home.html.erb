@@ -19,8 +19,8 @@
 	<div class="navrow row">
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<div class="col-sm-4">
-				<ul class="nav navbar-nav">
-					<li><a href="#" class="ghostbutton signin">Sign in <span class="sr-only">(current)</span></a></li>
+				<ul class="navbar">
+					<li><a href="#" class="ghostbutton signin" style="width: 100%;">Sign in <span class="sr-only">(current)</span></a></li>
 				</ul>
 			</div>
 			<div class="col-sm-4 search">
@@ -29,6 +29,7 @@
 						<div class="form-group search">
 							<%= form_tag(search_path, method: 'get', class: 'navbar-form navbar-left', role: 'search') do %>
 							<%= text_field_tag(:q) %>
+							<%= select_tag "category_id", options_from_collection_for_select() %>
 							<button type="Submit" class="ghostbutton">Search</button>
 						</div>
 					<% end %>	</li>
@@ -41,13 +42,15 @@
 						Cities with bootcamps
 						<span class="caret"></span>
 						</button>
-						<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+						
+						<ul class="dropdown-menu nav navbar-nav" role="menu" aria-labelledby="dropdownMenu1">
 							<% @cities.each do |city| %>
 							<li role="presentation">
 							<b><%= link_to(city.name, city_path(city))  %></b>
 							<%= image_tag(city.cityimgs.first.url, class: "cityIMGsmall") %>
 							</li>
 							<% end %>
+						
 						</ul>
 					</div>
 				</ul>

@@ -6,7 +6,7 @@ GIT
 
 GIT
   remote: git://github.com/reactjs/react-rails.git
-  revision: ac4320eb183b948ec328a695cd54d27c769073af
+  revision: f9490997b659512ef0d2d4034c0215bb95147288
   branch: master
   specs:
     react-rails (1.0.0.pre)
@@ -58,6 +58,7 @@ GEM
     autoprefixer-rails (5.1.7)
       execjs
       json
+    bcrypt (3.1.10-x64-mingw32)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.3)
@@ -77,19 +78,30 @@ GEM
       execjs
     coffee-script-source (1.9.1)
     columnize (0.9.0)
-    connection_pool (2.1.1)
+    connection_pool (2.1.2)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
+    devise (3.4.1)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      responders
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.3.0)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
+    geocoder (1.2.7)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
     gmaps4rails (2.1.2)
     hike (1.2.3)
+    httparty (0.11.0)
+      multi_json (~> 1.0)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
-    jbuilder (2.2.8)
+    jbuilder (2.2.9)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
     jquery-rails (4.0.3)
@@ -104,10 +116,12 @@ GEM
     mime-types (2.4.3)
     mini_portile (0.6.2)
     minitest (5.5.1)
-    multi_json (1.10.1)
+    multi_json (1.11.0)
+    multi_xml (0.5.5)
     multipart-post (2.0.0)
     nokogiri (1.6.6.2-x64-mingw32)
       mini_portile (~> 0.6.0)
+    orm_adapter (0.5.0)
     pg (0.18.1-x64-mingw32)
     rack (1.6.0)
     rack-test (0.6.3)
@@ -143,12 +157,14 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     react-source (0.12.2)
+    responders (2.1.0)
+      railties (>= 4.2.0, < 5)
     roomorama_api (0.4.1)
       faraday (~> 0.8)
       json (~> 1.7.7)
     rubillow (0.0.7)
       nokogiri (~> 1.5)
-    sass (3.4.12)
+    sass (3.4.13)
     sass-rails (5.0.1)
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.1)
@@ -181,10 +197,12 @@ GEM
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
     underscore-rails (1.8.2)
-    web-console (2.0.0)
-      activemodel (~> 4.0)
+    warden (1.2.3)
+      rack (>= 1.0)
+    web-console (2.1.0)
+      activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
-      railties (~> 4.0)
+      railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
 
 PLATFORMS
@@ -195,7 +213,10 @@ DEPENDENCIES
   bootstrap_form!
   byebug
   certified
+  devise
+  geocoder
   gmaps4rails
+  httparty
   jbuilder (~> 2.0)
   jquery-rails
   pg
