@@ -1,6 +1,20 @@
 require 'json'
 
 class SiteController < ApplicationController
+		class Zilyo
+		    include HTTParty
+
+		    base_uri 'https://zilyo.p.mashape.com'
+		    headers 'Accept' => 'application/json'
+
+		    def initialize(zilyo_key)
+		    	self.class.headers('X-Mashape-Key' => zilyo_key)
+		    end
+
+		    def search(query)
+		    	self.class.get('/search', :query => query)
+		    end
+		end
 	def home
 		@cities = City.all
 		@bootcamps = Bootcamp.all
@@ -12,9 +26,9 @@ class SiteController < ApplicationController
 		# searchproperties = client.properties_find destination: params[:q]
 		# @properties = searchproperties['result']
 		####GEOCODER
-		# results = Geocoder.coordinates(params[:q])
-		# lat = results[0]
-		# lon = results[1]
+		results = Geocoder.coordinates(params[:q])
+		lat = results[0]
+		lon = results[1]
 		####FARADAY
 		# conn = Faraday.new(:url => "https://zilyo.p.mashape.com/search?latitude=#{lat}&longitude=#{lon}") do |faraday|
 		#   # faraday.request  :url_encoded             # form-encode POST params
@@ -35,7 +49,10 @@ class SiteController < ApplicationController
 		#     "Accept" => "application/json"
 		#   }
 		#   p response
-
+		zilyo = Zilyo.new("tXnQCZACTdmshnoQ9AKPzkcoytDvp1Y58D4jsnjfW1s8PmfvJh")
+		response = zilyo.search({ latitude: lat, longitude: lon, guests: params[:numrooms]  })
+		searchproperties = JSON.parse(response.body)
+		@properties = searchproperties['result']
 	end
 	def about
 	end

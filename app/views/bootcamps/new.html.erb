@@ -1,8 +1,21 @@
+<div class="formcontainer container-fluid">
+	<div class="homebanner row"><%= image_tag("bootcampbanner.jpg", height: "400px", width: "100%") %></div>
+</div>
 <div class="formcontainer container">
-<%= bootstrap_form_for(@bootcamp) do |f| %>
-  <%= f.text_field :name %>
- 
-  <%= f.text_field :description %>
-  	<%= f.submit "Submit your bootcamp"%>
-<% end %>
+	<div class="heading row"> 
+		<div class="col-sm-4"></div>
+		<div class="col-sm-4"><h2 class="heading text-center">Register a new bootcamp</h2></div>
+		<div class="col-sm-4"></div>
+	</div>
+	<div class="newbootcampcontent row">
+		<div class="col-sm-12 text-center">
+		<%= bootstrap_form_for(@bootcamp) do |f| %>
+		  <%= f.text_field :name %>
+		  <%= f.text_field :description %>
+		   <%= f.select :cities,  options_from_collection_for_select(City.all, "id", "name") %> 
+		  	<%= f.submit "Submit your bootcamp"%><br>
+		  	 <%= link_to("Home", root_path) %>
+		<% end %>
+		</div>
+	</div>
 </div>

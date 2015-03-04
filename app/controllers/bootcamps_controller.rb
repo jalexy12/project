@@ -11,6 +11,7 @@ class BootcampsController < ApplicationController
 	end
 	def new
 		@bootcamp = Bootcamp.new
+		@cities = City.all
 	end
 
 end

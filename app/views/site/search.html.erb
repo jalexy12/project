@@ -12,10 +12,12 @@
 <ul>
 	<% @properties.each do |property| %>
 		<li>
-			<h3><%= property['title'] %></h3>
-			<img src="<%= (property['thumbnail']) %>"><br>
+			<h3><%= property['description'] %></h3>
+			<img src="<%= property['photos']['medium'] %>"><br>
 			<a href="<%= property['url'] %>">Link to Property</a><br>
-			<strong>$<%= property['price'] %></strong>
+			Monthly: $<%= property['price']['monthly'] %><br>
+			Weekly: $<%= property['price']['weekly'] %><br>
+			Daily: $<%= property['price']['daily'] %><br>
 			<strong>Number of rooms: <%= property['num_rooms'] %>----Maximum People: <%= property['max_guests'] %>-----Minimum stay length: <%= property['min_stay'] %></strong>
 
 		</li>

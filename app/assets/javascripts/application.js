@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require showdown
 //= require react
 //= require components
@@ -20,4 +19,5 @@
 //= require bootstrap
 //= require underscore
 //= require gmaps/google
+//= require jquery_limitslider
 //= require_tree .

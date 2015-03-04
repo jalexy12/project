@@ -1,14 +1,25 @@
-<div class="formcontainer container">
-<div class="heading row"> 
-	<div class="col-sm-4"></div>
-	<div class="col-sm-4"><h2 class="heading">Add a new property</h2></div>
-	<div class="col-sm-4"></div>
+<div class="formcontainer container-fluid">
+	<div class="homebanner row"><%= image_tag("housebanner.jpg", height: "400px", width: "100%") %></div>
 </div>
-<%= bootstrap_form_for(@property) do |f| %>
-  <%= f.text_field :agent %>
-  <%= f.text_field :city %>
-  <%= f.text_field :link %>
-   <%= f.select :bootcamp,  options_from_collection_for_select(Bootcamp.all, "id", "name") %> 
-   <%= f.submit "Submit real estate for approval"%>
-<% end %>
+
+<div class="newpropcontentcontainer container">
+	<div class="heading row"> 
+		<div class="col-sm-4"></div>
+		<div class="col-sm-4"><h2 class="heading text-center">Add a new property</h2></div>
+		<div class="col-sm-4"></div>
+	</div>
+	<div class="newpropcontent row">
+		
+		<div class="col-sm-12 text-center">
+			<%= bootstrap_form_for(@property) do |f| %>
+			  <%= f.text_field :agent %>
+			  <%= f.text_field :city %>
+			  <%= f.text_field :link %>
+			   <%= f.select :bootcamp,  options_from_collection_for_select(Bootcamp.all, "id", "name") %> 
+			   <%= f.submit "Submit real estate for approval"%><br>
+			   <%= link_to("Home", root_path) %>
+			<% end %>
+		</div>
+
+	</div>
 </div>
