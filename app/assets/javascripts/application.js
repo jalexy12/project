@@ -19,5 +19,6 @@
 //= require bootstrap
 //= require underscore
 //= require gmaps/google
+//= require map
 //= require jquery_limitslider
 //= require_tree .

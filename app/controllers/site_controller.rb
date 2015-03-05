@@ -50,9 +50,23 @@ class SiteController < ApplicationController
 		#   }
 		#   p response
 		zilyo = Zilyo.new("tXnQCZACTdmshnoQ9AKPzkcoytDvp1Y58D4jsnjfW1s8PmfvJh")
-		response = zilyo.search({ latitude: lat, longitude: lon, guests: params[:numrooms]  })
+		response = zilyo.search({ latitude: lat, longitude: lon, numofbedrooms: params[:numrooms], resultsperpage: 50  })
 		searchproperties = JSON.parse(response.body)
+		@coordinates = []
 		@properties = searchproperties['result']
+		@properties.each_with_index do |prop, index|
+			propCoords = prop['latLng']
+			@propLat = propCoords[0]
+			@propLon = propCoords[1]
+		 @coordinates.push([@propLat, @propLon])
+		end
+
+
+		@hash = Gmaps4rails.build_markers(@coordinates) do |property, marker|
+ 			 @lat = property[0]
+ 			 @lng = property[1]
+		end
+	
 	end
 	def about
 	end

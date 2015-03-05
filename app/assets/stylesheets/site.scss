@@ -17,7 +17,30 @@ html *
 	margin: 0;
 }
 .propertysingle{
+	background-color: white;
+	margin-left: 6px;
+	margin-right: 6px;
+	margin-top: 6px;
+	margin-bottom: 2px;
 	width: 30%;
+	height: 500px;
+	border-style: groove;
+	border-width: 2px;
+	border-color: black;
+	z-index: 100;
+	box-shadow: 10px 10px 5px #888888;
+	overflow: scroll;
+
+}
+.propsearchbar{
+	align: center;
+}
+.propheading{
+	font-weight: bold;
+	font-size: 1.4em;
+}
+.propsubheading{
+	font-size: 1.3em;
 }
 .contentcontainer{
 	margin-top: 50px;
