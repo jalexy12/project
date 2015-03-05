@@ -1,26 +1,46 @@
-<div class="search">
+<div class="search row">
 	<%= form_tag(search_path, method: 'get', class: 'navbar-form navbar-left', role: 'search') do %>
-	  <%= label_tag(:q, "Search for:") %>
-	  <%= text_field_tag(:q) %>
-	  <button type="Submit">Search</button>
-	<% end %>	
+	<%= label_tag(:q, "Search for:") %>
+	<%= text_field_tag(:q) %>
+	<button type="Submit">Search</button>
+	<% end %>
 </div>
 <br>
 <br>
-<div class="properties">
- 		
-<ul>
-	<% @properties.each do |property| %>
-		<li>
-			<h3><%= property['description'] %></h3>
-			<img src="<%= property['photos']['medium'] %>"><br>
-			<a href="<%= property['url'] %>">Link to Property</a><br>
-			Monthly: $<%= property['price']['monthly'] %><br>
-			Weekly: $<%= property['price']['weekly'] %><br>
-			Daily: $<%= property['price']['daily'] %><br>
-			<strong>Number of rooms: <%= property['num_rooms'] %>----Maximum People: <%= property['max_guests'] %>-----Minimum stay length: <%= property['min_stay'] %></strong>
-
-		</li>
-	<% end %>
-</ul>
+<div class="propertiessearch container">
+	<div class="propertiessearch row">
+		<ul style="list-style: none;" class="searchresults">
+			<% @properties.each do |property| %>
+				<% if property['itemStatus'].present? %>
+				<div class='propertysingle col-sm-3'>
+				<li>
+					<h3><%= property['description'] %></h3>
+					<% if property['photos'][0]['medium'] != nil %>
+					<img class="propertyimg" src="<%= property["photos"][0]["medium"] %>"><br>
+					<% end %>
+					<a href="<%= property['url'] %>">Link to Property</a><br>
+					<% if property['price'] != nil %>
+					Monthly: $<%= property['price']['monthly'] %><br>
+					Weekly: $<%= property['price']['weekly'] %><br>
+					<% if property['price']['daily'] != nil %>
+					Daily: $<%= property['price']['daily'] %><br>
+					<% end %>
+					<% end %>
+					<% if property['location']['neighbourhood'].present? ? @citydata = "#{property['location']['neighbourhood']}, #{property['location']['city']}, #{property['location']['state']}" : @citydata = "#{property['location']['city']}, #{property['location']['state']}" %>
+					<% end %>
+					Location: <%= @citydata %><br>
+					Minimum Stay: <%= "#{property['price']['minNight']} nights" %><br>
+					Room type: <%= property['attr']['propType']['text'] %><br>
+					Bedrooms: <%= property['attr']['bedrooms'] %>
+				</li>
+				</div>
+				<% else %>
+				<div class="propertysingle">
+					Property not found
+				</div>
+				<% end %>
+			<% end %>
+			
+		</ul>
+	</div>
 </div>
