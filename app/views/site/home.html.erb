@@ -21,7 +21,13 @@
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<div class="col-sm-4">
 				<ul class="navbar">
-					<li><a href="#" class="ghostbutton signin" style="width: 100%;">Sign in <span class="sr-only">(current)</span></a></li>
+					<li>
+					<% if current_user.present? %>
+					<%= link_to('Logout', destroy_user_session_path, method: "Delete", style:"width: 100%;", class: "ghostbutton signin") %>
+					<% else %>
+					<%= link_to('Login', new_user_session_path, style:"width: 100%;", class: "ghostbutton signin") %>
+					<%= link_to('Register', new_user_registration_path, style:"width: 100%;", class: "ghostbutton signin") %>
+					<% end %>
 				</ul>
 			</div>
 			<div class="col-sm-4 search">
@@ -31,7 +37,7 @@
 							<%= form_tag(search_path, method: 'get', class: 'navbar-form navbar-left', role: 'search') do %>
 							<%= text_field_tag(:q) %>
 							<%= select_tag(:numrooms, options_for_select([1,2,3,4,5])) %>
-							<input type="number" class="span2" value="" data-slider-min="-20" data-slider-max="20" data-slider-step="1" data-slider-value="-14" data-slider-orientation="vertical" data-slider-selection="after"data-slider-tooltip="hide">							
+							<%= select_tag(:sortby, options_for_select(["Price: Low to high", "Price: High to low", "Relevance"]))%>					
 							<button type="Submit" class="ghostbutton">Search</button><br>
 						
 						</div>
@@ -69,7 +75,10 @@
 			<div class="bootcampheading row text-center"><h2 class="majorheading">Check out some bootcamps</h2><h4 class="minorheading">Learn the skills you need, faster.</h4></div>
 			<% @bootcamps.each do |bootcamp| %>
 			<% if bootcamp.bootcampimgs != nil %>
-			<div class="bootcamphome text-center col-sm-4"> <h2 class="heading"><%= link_to(bootcamp.name, bootcamp_path(bootcamp))  %></h2><br>
+			<div class="bootcamphome text-center col-sm-3"> <h2 class="heading"><%= link_to(bootcamp.name, bootcamp_path(bootcamp))  %></h2><br>
+				<% bootcamp.cities.each do |city| %>
+				<h4 ><%= city.name %></h4>
+				<% end%>
 				<%= image_tag(bootcamp.bootcampimgs.first.url, class: "cityIMG") %>
 			</div>
 			<% end %>

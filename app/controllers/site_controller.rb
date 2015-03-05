@@ -1,32 +1,42 @@
 require 'json'
 
 class SiteController < ApplicationController
-		class Zilyo
-		    include HTTParty
+	sort = ""
+	class Zilyo
+	    include HTTParty
 
-		    base_uri 'https://zilyo.p.mashape.com'
-		    headers 'Accept' => 'application/json'
+	    base_uri 'https://zilyo.p.mashape.com'
+	    headers 'Accept' => 'application/json'
 
-		    def initialize(zilyo_key)
-		    	self.class.headers('X-Mashape-Key' => zilyo_key)
-		    end
+	    def initialize(zilyo_key)
+	    	self.class.headers('X-Mashape-Key' => zilyo_key)
+	    end
 
-		    def search(query)
-		    	self.class.get('/search', :query => query)
-		    end
-		end
+	    def search(query)
+	    	self.class.get('/search', :query => query)
+	    end
+	end
 	def home
 		@cities = City.all
 		@bootcamps = Bootcamp.all
 		@property = Property.new
 	end
 	def search
+		if params[:sortby] == "Price: Low to high"
+	    		sort = "low2high"
+    	elsif params[:sortby] == "Price: High to low"
+    		sort = "high2low"
+    	else
+    		sort = "relevance"
+    	end
 		###ROOMORAMA
 		# client = RoomoramaApi::Client.new 'Z2YSZoQxGQyGCIJTnRuec4fFbbG1Jirn5GigXp1mgRo'
 		# searchproperties = client.properties_find destination: params[:q]
 		# @properties = searchproperties['result']
 		####GEOCODER
 		results = Geocoder.coordinates(params[:q])
+		p '-------------------'
+		p results 
 		lat = results[0]
 		lon = results[1]
 		####FARADAY
@@ -50,7 +60,7 @@ class SiteController < ApplicationController
 		#   }
 		#   p response
 		zilyo = Zilyo.new("tXnQCZACTdmshnoQ9AKPzkcoytDvp1Y58D4jsnjfW1s8PmfvJh")
-		response = zilyo.search({ latitude: lat, longitude: lon, numofbedrooms: params[:numrooms], resultsperpage: 50  })
+		response = zilyo.search({ latitude: lat, longitude: lon, numofbedrooms: params[:numrooms], resultsperpage: 50, maxdistance: 14, sort: sort  })
 		searchproperties = JSON.parse(response.body)
 		@coordinates = []
 		@properties = searchproperties['result']

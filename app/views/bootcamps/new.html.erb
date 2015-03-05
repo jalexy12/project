@@ -12,7 +12,7 @@
 		<%= bootstrap_form_for(@bootcamp) do |f| %>
 		  <%= f.text_field :name %>
 		  <%= f.text_field :description %>
-		   <%= f.select :cities,  options_from_collection_for_select(City.all, "id", "name") %> 
+		   <%= f.text_field :cities %> 
 		  	<%= f.submit "Submit your bootcamp"%><br>
 		  	 <%= link_to("Home", root_path) %>
 		<% end %>
