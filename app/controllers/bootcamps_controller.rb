@@ -29,7 +29,7 @@ class BootcampsController < ApplicationController
 	def add_user
 		@bootcamp = Bootcamp.find_by(id: params[:bootcamp_id])
 		@user = current_user
-		
+		@user.funds_per_month = params[:funds_per_month]
 		if @bootcamp.users.push(@user)
 			flash[:notice] = "Your interest in this bootcamp has been added, other users can now contact you with more info"
 			redirect_to(bootcamp_path(@bootcamp))

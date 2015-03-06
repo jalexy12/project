@@ -12,7 +12,15 @@
 		</div>
 		<div class="mainbanner">
 			<%= image_tag("mainbanner.jpg", class: "headingbanner") %>
-			<div class="headingwrapper"><h2 class="siteheading text-center">Welcome to BootcampEZ</h2><h4 class="sitesidenote text-center">You do the learning, we do the rest</h4></div>
+			<div class="headingwrapper">
+			<div class="form-group search">
+						<%= form_tag(search_path, method: 'get', class: 'navbar-form navbar-left', role: 'search') do %>
+						<%= text_field_tag(:q) %>
+						<%= select_tag(:numrooms, options_for_select([1,2,3,4,5])) %>
+						<%= select_tag(:sortby, options_for_select(["Price: Low to high", "Price: High to low", "Relevance"]))%>					
+						<button type="Submit" class="ghostbutton">Search</button><br>
+			</div>
+			<h2 class="siteheading text-center">Welcome to BootcampEZ</h2><h4 class="sitesidenote text-center">You do the learning, we do the rest</h4></div>
 		</div>
 	</div>
 </div>
@@ -28,20 +36,12 @@
 					<%= link_to('Login', new_user_session_path, style:"width: 100%;", class: "ghostbutton signin") %>
 					<%= link_to('Register', new_user_registration_path, style:"width: 100%;", class: "ghostbutton signin") %>
 					<% end %>
+					<% end %>
 				</ul>
 			</div>
-			<div class="col-sm-4 search">
+			<div class="col-sm-4">
 				<ul class="nav navbar-nav">
-					<li class="active searchli row">
-						<div class="form-group search">
-							<%= form_tag(search_path, method: 'get', class: 'navbar-form navbar-left', role: 'search') do %>
-							<%= text_field_tag(:q) %>
-							<%= select_tag(:numrooms, options_for_select([1,2,3,4,5])) %>
-							<%= select_tag(:sortby, options_for_select(["Price: Low to high", "Price: High to low", "Relevance"]))%>					
-							<button type="Submit" class="ghostbutton">Search</button><br>
-						
-						</div>
-					<% end %>	</li>
+
 				</ul>
 			</div>
 			<div class="col-sm-4">
@@ -51,7 +51,6 @@
 						Cities with bootcamps
 						<span class="caret"></span>
 						</button>
-						
 						<ul class="dropdown-menu nav navbar-nav" role="menu" aria-labelledby="dropdownMenu1">
 							<% @cities.each do |city| %>
 							<li role="presentation">
