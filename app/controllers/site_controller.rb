@@ -60,7 +60,7 @@ class SiteController < ApplicationController
 		#   }
 		#   p response
 		zilyo = Zilyo.new("tXnQCZACTdmshnoQ9AKPzkcoytDvp1Y58D4jsnjfW1s8PmfvJh")
-		response = zilyo.search({ latitude: lat, longitude: lon, numofbedrooms: params[:numrooms], resultsperpage: 50, maxdistance: 14, sort: sort  })
+		response = zilyo.search({ latitude: lat, longitude: lon, numofbedrooms: params[:numrooms], resultsperpage: 50, maxdistance: 7, sort: sort  })
 		searchproperties = JSON.parse(response.body)
 		@coordinates = []
 		@properties = searchproperties['result']
