@@ -25,7 +25,19 @@
 		</div>
 		<br>
 		<div class="attend row">
-			<div class="col-sm-4">People looking to attend: </div>
+			<div class="col-sm-4">People looking to attend: 
+				<ul>
+				<% @bootcamp.users.each do |user| %>
+				<% if user.funds_per_month != nil %>
+				<li>
+				Name: <%= user.name %>
+				Funds for rent: <%= user.funds_per_month %><br>
+				Email: <% user.email %><br>
+				<% end %>
+				<% end %>
+				</li>
+				</ul>
+			</div>
 			<div class="col-sm-4 text-center">
 				<%= button_to "Interested in attending?", @bootcamp.url, :method => "get", class: "btn btn-primary" %><br>
 				<%= button_to "Interested in housing?", add_user_path(bootcamp_id: @bootcamp.id), :method => "post", class: "btn btn-warning" %><br>
