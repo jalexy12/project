@@ -3,8 +3,9 @@
 		<div class="col-sm-4"></div>
 		<div class="col-sm-4 propsearchbar">
 		<%= form_tag(search_path, method: 'get', class: 'navbar-form navbar-left', role: 'search') do %>
-		<%= label_tag(:q, "Search for more housing:") %>
 		<%= text_field_tag(:q) %>
+		<%= select_tag(:numrooms, options_for_select([1,2,3,4,5])) %>
+		<%= select_tag(:sortby, options_for_select(["Price: Low to high", "Price: High to low", "Relevance"]))%>					
 		<button type="Submit">Search</button>
 		<% end %>
 		</div>

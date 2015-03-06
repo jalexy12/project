@@ -90,6 +90,8 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.3.0)
+    faker (1.4.3)
+      i18n (~> 0.5)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     geocoder (1.2.7)
@@ -214,6 +216,7 @@ DEPENDENCIES
   byebug
   certified
   devise
+  faker
   geocoder
   gmaps4rails
   httparty

@@ -9,10 +9,10 @@
 	</div>
 	<div class="newbootcampcontent row">
 		<div class="col-sm-12 text-center">
-		<%= bootstrap_form_for(@bootcamp) do |f| %>
+		<%= bootstrap_form_for [@bootcamp] do |f| %>
 		  <%= f.text_field :name %>
 		  <%= f.text_field :description %>
-		   <%= f.text_field :cities %> 
+		  <%= f.collection_select(:cities, City.all, :id, :name) %>
 		  	<%= f.submit "Submit your bootcamp"%><br>
 		  	 <%= link_to("Home", root_path) %>
 		<% end %>

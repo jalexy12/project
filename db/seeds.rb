@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #cities
-miami =	City.create(name: "Miami", description: "Very cool, warm beach town with a great startup culture blahaboalh")
+miami =	City.create(name: "Miami", description: "Very cool, warm beach town with a great startup culture blahaboalh",)
 pittsburgh = City.create(name: "Pittsburgh", description: "Cold, angry town in PA")
 chicago = City.create(name: "Chicago", description: "Da bears")
 seattle = City.create(name: "Seattle", description: "Oh look a hipster")
@@ -49,17 +49,17 @@ coconutGrove.neighborhoodimgs.create(url: "/assets/coconut.jpg")
 designDistrict.neighborhoodimgs.create(url: "/assets/designDistrict.jpg")
 wynwood.neighborhoodimgs.create(url: "/assets/wynwood.jpg")	
 #bootcamps
-ironhack = Bootcamp.create(name: "Ironhack", description: "Sweet Miami bootcamp for bros")
-appAcademy = Bootcamp.create(name: "App Academy", description: "Description goes here")
-wyncode = Bootcamp.create(name: "Wyncode", description: "Hipsters can code too")
-byteAcademy = Bootcamp.create(name: "Byte Academy", description: "Description goes here")
-codeFellows = Bootcamp.create(name: "Code Fellows", description: "Description goes here")
-codeCore = Bootcamp.create(name: "Code Core", description: "Description goes here")
-codeDojo = Bootcamp.create(name: "Code Dojo", description: "Description goes here")
-devBootcamp = Bootcamp.create(name: "Dev Bootcamp", description: "Description goes here")
-lightHouseLabs = Bootcamp.create(name: "Light House Labs", description: "Description goes here")
-claimAcademy = Bootcamp.create(name: "Claim academy", description: "Description goes here")
-hackReactor = Bootcamp.create(name: "Hack Reactor", description: "Description goes here")
+ironhack = Bootcamp.create(name: "Ironhack", description: "Sweet Miami bootcamp for bros", url: "http://ironhack.com/en/http://ironhack.com/en/", approved: true )
+appAcademy = Bootcamp.create(name: "App Academy", description: "Description goes here", url:"http://www.appacademy.io/", approved: true )
+wyncode = Bootcamp.create(name: "Wyncode", description: "Hipsters can code too", url: "http://wyncode.co/", approved: true)
+byteAcademy = Bootcamp.create(name: "Byte Academy", description: "Description goes here", url: "http://www.byteacademy.co/", approved: true)
+codeFellows = Bootcamp.create(name: "Code Fellows", description: "Description goes here", url: "https://www.codefellows.org/", approved: true)
+codeCore = Bootcamp.create(name: "Code Core", description: "Description goes here", url:"http://codecore.ca/", approved: true )
+codeDojo = Bootcamp.create(name: "Code Dojo", description: "Description goes here", url: "http://www.codingdojo.com/", approved: true)
+devBootcamp = Bootcamp.create(name: "Dev Bootcamp", description: "Description goes here", url: "http://devbootcamp.com/", approved: true)
+lightHouseLabs = Bootcamp.create(name: "Light House Labs", description: "Description goes here", url: "https://www.lighthouselabs.ca/", approved: true)
+claimAcademy = Bootcamp.create(name: "Claim academy", description: "Description goes here", url: "http://claimacademystl.com/", approved: true)
+hackReactor = Bootcamp.create(name: "Hack Reactor", description: "Description goes here", url: "http://www.hackreactor.com/", approved: true )
 #bootcamp logos
 # ironhackLogo = 
 # appAcademyLogo = 
@@ -112,5 +112,10 @@ devBootcamp.bootcampcoords.create(city_id: 5, lat: 40.706496, lon: -74.009113000
 devBootcamp.bootcampcoords.create(city_id: 3, lat: 32.8091531, lon: -98.11537799999996)
 codeCore.bootcampcoords.create(city_id: 8, lat: 49.280379, lon: -123.10690499999998)
 lightHouseLabs.bootcampcoords.create(city_id: 8, lat: 49.281844, lon: -123.108162)
+
+1000.times do |i|
+    User.create!(name: Faker::Name.name, email: Faker::Internet.email, password: "password", funds_per_month: rand(1..40000))
+ end
+
 
 
