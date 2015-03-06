@@ -5,10 +5,10 @@ class BootcampsController < ApplicationController
 	end
 	def show
 		@bootcamp = Bootcamp.find_by(id: params[:id])
-		@hash = Gmaps4rails.build_markers(@bootcamp.bootcampcoords) do |bootcamp, marker|
-  			marker.lat bootcamp.lat
-  			marker.lng bootcamp.lon
-		end
+		# @hash = Gmaps4rails.build_markers(@bootcamp.bootcampcoords) do |bootcamp, marker|
+  # 			marker.lat bootcamp.lat
+  # 			marker.lng bootcamp.lon
+		# end
 	end
 	def new
 		@bootcamp = Bootcamp.new
@@ -23,6 +23,18 @@ class BootcampsController < ApplicationController
 			redirect_to(root_path)
 		else
 			flash[:error] = "Bootcamp not created"
+			render 'new'
+		end
+	end
+	def add_user
+		@bootcamp = Bootcamp.find_by(id: params[:bootcamp_id])
+		@user = current_user
+		
+		if @bootcamp.users.push(@user)
+			flash[:notice] = "Your interest in this bootcamp has been added, other users can now contact you with more info"
+			redirect_to(bootcamp_path(@bootcamp))
+		else
+			flash[:error] = "User not added"
 			render 'new'
 		end
 	end

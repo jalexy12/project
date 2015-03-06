@@ -7,7 +7,7 @@
 			<div class="col-sm-4"></div>
 		</div>
 		<br>
-		<div class="row">
+		<div class="about row">
 			<div class="col-sm-4"></div>
 			<div class="col-sm-4 bootcampname">
 			<h4 class="bcabout text-center">About this bootcamp:</h4><br>
@@ -28,8 +28,8 @@
 			<div class="col-sm-4">People looking to attend: </div>
 			<div class="col-sm-4 text-center">
 				<%= button_to "Interested in attending?", @bootcamp.url, :method => "get", class: "btn btn-primary" %><br>
-				<%= button_to "Interested in housing?", add_user_path, :method => "get", class: "btn btn-warning" %><br>
-				<button class="btn btn-warning">Who else needs housing?</button>
+				<%= button_to "Interested in housing?", add_user_path(bootcamp_id: @bootcamp.id), :method => "post", class: "btn btn-warning" %><br>
+				
 			</div> 
 			<div class="col-sm-4"></div>
 		</div>

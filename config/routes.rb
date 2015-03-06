@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'site#home'
   get '/search' => "site#search"
   get 'about' => "site#about"
+  post '/add_user/:bootcamp_id' => 'bootcamps#add_user', as: "add_user"
   resources :cities
   resources :neighborhoods
   resources :bootcamps
