@@ -4,7 +4,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script> 
 <p id="notice"><%= notice %></p>
 <% @image = @city.cityimgs.first %>
-<div class="cityimage col-sm-12"><%= image_tag(@image.url) %><header><h1><%= @city.name %></h1></header></div>
+<div class="cityimage col-sm-12"><%= image_tag(@image.url) %><header></div>
 <div class="cityname col-sm-12 text-center"><%= @city.name %></div>
 <div class="citycontainer container">
 	<div class="headingrow row text-center">
@@ -12,16 +12,18 @@
 		<div class="col-sm-5"></div><br>
 	</div>
 	<div class="name row">
-		<div class='col-sm-7 neighborhoods text-center' id="neighborhoods">
-			 <div id="map"></div>
-		</div>
-		<div class="cityInfo text-center col-sm-5">
-			<div class="bootcamps"><span class="heading">Bootcamps available in this city:</span><br><br>
+		<div class="col-sm-4"></div>
+		<div class="cityInfo text-center col-sm-4">
+			<div class="bootcampsheading"><span class="heading">Bootcamps available in this city:</span><br><br>
+                <% @city.bootcamps.each do |bootcamp| %>
+                <h2><%= link_to(bootcamp.name, bootcamp_path(bootcamp)) %></h2><br>
+                <% end %>
 			</div>
-			<div class="about"><span class="heading">About</span><br><br>
+			<span class="heading">About</span><br>
 				<%= @city.description %>
-			</div>
+			
 		</div>
+        <div class="col-sm-4"></div>
 	</div>
 	<div class="description row">
 		<div class="col-sm-4">
@@ -35,7 +37,6 @@
 		<div class='col-sm-4'>
 		</div>
 		<div class="col-sm-4">
-			<%= link_to 'Edit', edit_city_path(@city) %>
 			<%= link_to 'Back', cities_path %>
 		</div>
 		<div class='col-sm-4'>
