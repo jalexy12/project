@@ -7,6 +7,7 @@
 			<%= select_tag(:numrooms, options_for_select([1,2,3,4,5]), value: "Beds") %>
 			<%= select_tag(:sortby, options_for_select(["Price: Low to high", "Price: High to low", "Relevance"]))%>
 			<button type="Submit">Search</button>
+			<small><%= link_to("Home", root_path)
 			<% end %>
 		</div>
 		
