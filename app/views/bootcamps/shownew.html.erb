@@ -1,4 +1,22 @@
-<div id="map-canvas"></div>
+
+<script type="text/javascript">
+  $( document ).ready(function() {
+      handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      var markers = handler.addMarkers(<%=raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      $('body').on('click', '#replace_markers', function(){ 
+          $.getJSON("/cities/shownew", function(newMarkers){
+              handler.removeMarkers(markers); 
+              markers = handler.addMarkers(newMarkers);
+          });
+      });
+  });   
+   });
+   </script>
+
+<div id="map"></div>
 <div class="container-fluid" id="main">
   <div class="row">
   	<div class="col-xs-8" id="left">

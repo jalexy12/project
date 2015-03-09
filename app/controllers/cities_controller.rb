@@ -1,6 +1,6 @@
 class CitiesController < ApplicationController
   before_action :set_city, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :shownew]
   # ActionController::Base.helpers.asset_path("miami1.jpg", type: :image)
    respond_to :html, :xml, :json
   # GET /cities
@@ -13,6 +13,15 @@ class CitiesController < ApplicationController
   # GET /cities/1.json
   def show
     @city = City.find_by(id: params[:id])
+    @coords = @city.bootcampcoords.all
+     @hash = Gmaps4rails.build_markers(@city.bootcampcoords.all) do |coordinates, marker|
+      marker.lat coordinates.lat
+      marker.lng coordinates.lon
+      end
+       respond_with @hash
+  end
+  def shownew
+        @city = City.find_by(id: params[:id])
     @coords = @city.bootcampcoords.all
      @hash = Gmaps4rails.build_markers(@city.bootcampcoords.all) do |coordinates, marker|
       marker.lat coordinates.lat

@@ -31,3 +31,33 @@
   background-attachment: fixed;
   overflow: hidden;
 }
+.cityshowimg{
+	height: 255px;
+	width: 100%;
+}
+
+
+#main, #main>.row {
+	height:100%;
+}
+
+#main>.row {
+    overflow-y:scroll;
+}
+
+#left {
+	height:100%;
+}
+#main{
+	margin-top: -71px;
+}
+
+#map {
+	width:33.3333%;
+    height:calc(100% - 0);
+    position:absolute;
+    right:16px;
+    top:50px;
+    bottom:0;
+    overflow:hidden;
+}

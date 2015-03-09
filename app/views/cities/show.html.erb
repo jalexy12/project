@@ -1,68 +1,96 @@
+<!-- # <% @image = @city.cityimgs.first %>
+# <div style='width: 100%;'>
+#   <div id="map" style='width: 100%; height: 400px;'></div>
+# </div>
 
-     <script type="text/javascript">
-    $( document ).ready(function() {
-        handler = Gmaps.build('Google');
-    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-        var markers = handler.addMarkers(<%=raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-
-        $('body').on('click', '#replace_markers', function(){ 
-            $.getJSON("/telemetry_recordings", function(newMarkers){
-                handler.removeMarkers(markers); 
-                markers = handler.addMarkers(newMarkers);
-            });
-        });
-    });   
-     });
-     </script>
-
-<% @image = @city.cityimgs.first %>
-<div style='width: 100%;'>
-  <div id="map" style='width: 100%; height: 400px;'></div>
-</div>
-
-<div class="cityimage col-sm-12"><%= image_tag(@image.url) %><header></div>
-<div class="cityname col-sm-12 text-center"><%= @city.name %></div>
-<div class="citycontainer container">
-	<div class="headingrow row text-center">
-		<div class="cityname col-sm-7"></div>
-		<div class="col-sm-5"></div><br>
-	</div>
-	<div class="name row">
-		<div class="col-sm-4"></div>
-		<div class="cityInfo text-center col-sm-4">
-			<div class="bootcampsheading"><span class="heading">Bootcamps available in this city:</span><br><br>
-                <% @city.bootcamps.each do |bootcamp| %>
-                <h2><%= link_to(bootcamp.name, bootcamp_path(bootcamp)) %></h2><br>
-                <% end %>
-			</div>
-			<span class="heading">About</span><br>
-				<%= @city.description %>
+# <div class="cityimage col-sm-12"><%= image_tag(@image.url) %><header></div>
+# <div class="cityname col-sm-12 text-center"><%= @city.name %></div>
+# <div class="citycontainer container">
+# 	<div class="headingrow row text-center">
+# 		<div class="cityname col-sm-7"></div>
+# 		<div class="col-sm-5"></div><br>
+# 	</div>
+# 	<div class="name row">
+# 		<div class="col-sm-4"></div>
+# 		<div class="cityInfo text-center col-sm-4">
+# 			<div class="bootcampsheading"><span class="heading">Bootcamps available in this city:</span><br><br>
+#                 <% @city.bootcamps.each do |bootcamp| %>
+#                 <h2><%= link_to(bootcamp.name, bootcamp_path(bootcamp)) %></h2><br>
+#                 <% end %>
+# 			</div>
+# 			<span class="heading">About</span><br>
+# 				<%= @city.description %>
 			
-		</div>
-        <div class="col-sm-4"></div>
-	</div>
-	<div class="description row">
-		<div class="col-sm-4">
-		</div>
-		<div class="col-sm-4">
-		</div>
-		<div class='col-sm-4'>
-		</div>
-	</div>
-	<div class="linkbar row">
-		<div class='col-sm-4'>
-		</div>
-		<div class="col-sm-4">
-			<%= link_to 'Back', cities_path %>
-		</div>
-		<div class='col-sm-4'>
-		</div>
-	</div>
+# 		</div>
+#         <div class="col-sm-4"></div>
+# 	</div>
+# 	<div class="description row">
+# 		<div class="col-sm-4">
+# 		</div>
+# 		<div class="col-sm-4">
+# 		</div>
+# 		<div class='col-sm-4'>
+# 		</div>
+# 	</div>
+# 	<div class="linkbar row">
+# 		<div class='col-sm-4'>
+# 		</div>
+# 		<div class="col-sm-4">
+# 			<%= link_to 'Back', cities_path %>
+# 		</div>
+# 		<div class='col-sm-4'>
+# 		</div>
+# 	</div>
 
     
 
 
 
+# </div> -->
+<script type="text/javascript">
+  $( document ).ready(function() {
+      handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      var markers = handler.addMarkers(<%=raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      $('body').on('click', '#replace_markers', function(){ 
+          $.getJSON("/cities/shownew", function(newMarkers){
+              handler.removeMarkers(markers); 
+              markers = handler.addMarkers(newMarkers);
+          });
+      });
+  });   
+   });
+   </script>
+
+
+<div class="container-fluid" id="main">
+    <div id="map"></div>
+    <div class="row">
+      <div class="col-xs-8" id="left">
+    <%= image_tag(@city.cityimgs.first.url, class: "cityshowimg img-responsive") %>
+    </div>
+    <div class="col-xs-8" id="left">
+      <h2 class="heading">Available bootcamps in this city</h2>
+      <!-- item list -->
+      <% @city.bootcamps.each do |bootcamp| %>
+      <div class="panel panel-default">
+        <div class="panel-heading-city"><h2 class="heading"><b><%= link_to(bootcamp.name, bootcamp_path(bootcamp)) %></b></h2><br></div>
+      </div>
+      Info about this bootcamp: 
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+        Aliquam in felis sit amet augue.</p>
+       
+      <hr>
+      <% end %>    
+        
+      <hr>      
+
+    </div>
+    <div class="col-xs-4"><!--map-canvas will be postioned here--></div>
+    
+  </div>
 </div>
