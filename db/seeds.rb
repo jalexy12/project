@@ -49,7 +49,7 @@ coconutGrove.neighborhoodimgs.create(url: "/assets/coconut.jpg")
 designDistrict.neighborhoodimgs.create(url: "/assets/designDistrict.jpg")
 wynwood.neighborhoodimgs.create(url: "/assets/wynwood.jpg")	
 #bootcamps
-ironhack = Bootcamp.create(name: "Ironhack", description: "Sweet Miami bootcamp for bros", url: "http://ironhack.com/en/http://ironhack.com/en/", approved: true )
+ironhack = Bootcamp.create(name: "Ironhack", description: "Sweet Miami bootcamp for bros", url: "http://ironhack.com/en/", approved: true )
 appAcademy = Bootcamp.create(name: "App Academy", description: "Description goes here", url:"http://www.appacademy.io/", approved: true )
 wyncode = Bootcamp.create(name: "Wyncode", description: "Hipsters can code too", url: "http://wyncode.co/", approved: true)
 byteAcademy = Bootcamp.create(name: "Byte Academy", description: "Description goes here", url: "http://www.byteacademy.co/", approved: true)
@@ -118,5 +118,8 @@ lightHouseLabs.bootcampcoords.create(city_id: 8, lat: 49.281844, lon: -123.10816
     User.create!(name: Faker::Name.name, email: Faker::Internet.email, password: "password", funds_per_month: rand(1..40000))
  end
 
+ironhack.users.push(User.find(1))
+ironhack.users.push(User.find(2))
+ironhack.users.push(User.find(3))
 
 

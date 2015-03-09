@@ -20,11 +20,10 @@
 		<div class="col-sm-4 col-xs-6">
 			<div class="panel panel-default text-center">
 				<div class="panel-thumbnail-search">	<% if property['photos'][0]['medium'] != nil %>
-					
 					<img class="propertyimg" src="<%= property["photos"][0]["medium"] %>"><br>
 				<% end %></div>
 				<div class="panel-body">
-					<p class="lead"><h3 class="propheading"><%= property['attr']['heading'] %></h3>
+					<p class="lead"><h3 class="propheading"><%= truncate(property['attr']['heading'], length: 38) %></h3>
 						<% if property['location']['neighbourhood'].present? ? @citydata = "#{property['location']['neighbourhood']}, #{property['location']['city']}, #{property['location']['state']}" : @citydata = "#{property['location']['city']}, #{property['location']['state']}" %>
 						<% end %>
 					</p>
