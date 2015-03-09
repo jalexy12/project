@@ -23,7 +23,7 @@
 					<img class="propertyimg" src="<%= property["photos"][0]["medium"] %>"><br>
 				<% end %></div>
 				<div class="panel-body">
-					<p class="lead"><h3 class="propheading"><%= truncate(property['attr']['heading'], length: 38) %></h3>
+					<p class="lead"><h3 class="propheading"><%= truncate(property['attr']['heading'], length: 30) %></h3>
 						<% if property['location']['neighbourhood'].present? ? @citydata = "#{property['location']['neighbourhood']}, #{property['location']['city']}, #{property['location']['state']}" : @citydata = "#{property['location']['city']}, #{property['location']['state']}" %>
 						<% end %>
 					</p>
