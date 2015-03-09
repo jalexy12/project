@@ -74,13 +74,22 @@
     <%= image_tag(@city.cityimgs.first.url, class: "cityshowimg img-responsive") %>
     </div>
     <div class="col-xs-8" id="left">
-      <h2 class="heading">Available bootcamps in this city</h2>
+    <div class="panel panel-default">
+     <div class="panel-heading-city"><h2 class="heading"><b>About this city</b></h2><br>
+     </div>
+       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+        Aliquam in felis sit amet augue.</p>
+        <hr>
+    <div class="col-xs-8" id="left">
+      <h2 class="heading" style="font-size: 2em; margin-bottom: 2%;">Available bootcamps in this city</h2>
       <!-- item list -->
       <% @city.bootcamps.each do |bootcamp| %>
       <div class="panel panel-default">
-        <div class="panel-heading-city"><h2 class="heading"><b><%= link_to(bootcamp.name, bootcamp_path(bootcamp)) %></b></h2><br></div>
+        <div class="panel-heading-city"><h2 class="heading text-center"><b><%= link_to(bootcamp.name, bootcamp_path(bootcamp)) %></b></h2><br></div>
       </div>
-      Info about this bootcamp: 
+      <b>Info about this bootcamp:</b> 
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
         Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
         dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
