@@ -29,11 +29,11 @@
 				<ul>
 				
 				<% @bootcamp.users.each do |user| %>
-				<% if user.name != nil && user.funds_per_month != nil%>
+				<%#if user.name != nil && user.funds_per_month != nil%>
 				<li>
 				Name: <%= user.name %><br>
 				Funds for rent: <%= user.funds_per_month %><br>
-				<% end %>
+				<%# end %>
 				<% end %>
 				</li>
 				</ul>

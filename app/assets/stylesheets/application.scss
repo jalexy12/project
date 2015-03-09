@@ -6,8 +6,12 @@
 @import "./scaffolds";
 @import "./bootcamps";
 @import "./neighborhoods";
+@import "bootstrap-modal-bs3patch";
+@import "bootstrap-modal";
 /*
  *= require rails_bootstrap_forms
+ *= require bootstrap-modal-bs3patch
+ *= require bootstrap-modal
  */
 
  

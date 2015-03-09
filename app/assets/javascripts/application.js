@@ -21,4 +21,6 @@
 //= require gmaps/google
 //= require map
 //= require jquery_limitslider
+//= require bootstrap-modal
+//= require bootstrap-modalmanager
 //= require_tree .

@@ -97,6 +97,7 @@ chicago.bootcamps.push(codeFellows)
 seattle.bootcamps.push(codeDojo)
 vancouver.bootcamps.push(codeCore)
 vancouver.bootcamps.push(lightHouseLabs)
+stlouis.bootcamps.push(claimAcademy)
 #bootcamp coords
 ironhack.bootcampcoords.create(city_id: 1, lat: 25.763181, lon: -80.19101899999998)
 wyncode.bootcampcoords.create(city_id: 1, lat: 25.801147, lon: -80.202384)

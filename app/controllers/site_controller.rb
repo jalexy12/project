@@ -21,6 +21,11 @@ class SiteController < ApplicationController
 		@bootcamps = Bootcamp.all
 		@property = Property.new
 	end
+	def hometest
+		@cities = City.all
+		@bootcamps = Bootcamp.all
+		@property = Property.new
+	end
 	def search
 		if params[:sortby] == "Price: Low to high"
 	    		sort = "low2high"

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'site#home'
+  root 'site#hometest'
   get '/search' => "site#search"
   get 'about' => "site#about"
   post '/add_user/:bootcamp_id' => 'bootcamps#add_user', as: "add_user"
