@@ -34,6 +34,7 @@ class SiteController < ApplicationController
     	else
     		sort = "relevance"
     	end
+    
 		###ROOMORAMA
 		# client = RoomoramaApi::Client.new 'Z2YSZoQxGQyGCIJTnRuec4fFbbG1Jirn5GigXp1mgRo'
 		# searchproperties = client.properties_find destination: params[:q]
@@ -67,6 +68,7 @@ class SiteController < ApplicationController
 		zilyo = Zilyo.new("tXnQCZACTdmshnoQ9AKPzkcoytDvp1Y58D4jsnjfW1s8PmfvJh")
 		response = zilyo.search({ latitude: lat, longitude: lon, numofbedrooms: params[:numrooms], resultsperpage: 50, maxdistance: 7, sort: sort  })
 		searchproperties = JSON.parse(response.body)
+		p searchproperties
 		@coordinates = []
 		@properties = searchproperties['result']
 		@properties.each_with_index do |prop, index|
@@ -74,12 +76,6 @@ class SiteController < ApplicationController
 			@propLat = propCoords[0]
 			@propLon = propCoords[1]
 		 @coordinates.push([@propLat, @propLon])
-		end
-
-
-		@hash = Gmaps4rails.build_markers(@coordinates) do |property, marker|
- 			 @lat = property[0]
- 			 @lng = property[1]
 		end
 	
 	end
