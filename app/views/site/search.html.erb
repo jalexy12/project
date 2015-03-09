@@ -1,61 +1,45 @@
 <div class="propertiessearch container">
-	<div class="search row">
-		<div class="col-sm-4"></div>
-		<div class="col-sm-4 propsearchbar">
-		<%= form_tag(search_path, method: 'get', class: 'navbar-form navbar-left', role: 'search') do %>
-		<%= text_field_tag(:q) %>
-		<%= select_tag(:numrooms, options_for_select([1,2,3,4,5])) %>
-		<%= select_tag(:sortby, options_for_select(["Price: Low to high", "Price: High to low", "Relevance"]))%>					
-		<button type="Submit">Search</button>
-		<% end %>
+	<div class="row">
+		<div class="col-sm-12 propsearchbar text-center">
+			<h1 class='heading'>Search for more properties</h1>
+			<%= form_tag(search_path, method: 'get', class: '', role: 'search') do %>
+			<%= text_field_tag(:q) %>
+			<%= select_tag(:numrooms, options_for_select([1,2,3,4,5]), value: "Beds") %>
+			<%= select_tag(:sortby, options_for_select(["Price: Low to high", "Price: High to low", "Relevance"]))%>
+			<button type="Submit">Search</button>
+			<% end %>
 		</div>
-		<div class="col-sm-4"></div>
+		
 	</div>
 	<br>
 	<br>
-	<div class="propertiessearch row">
-			<div class="col-sm-12">
-				<ul style="list-style: none;" class="searchresults">
-					<% @properties.each do |property| %>
-						<% if property['itemStatus'].present? %>
-						<div class='propertysingle col-sm-4 text-center'>
-						<li>
-							<h3 class="propheading"><%= property['attr']['heading'] %></h3>
-							<% if property['location']['neighbourhood'].present? ? @citydata = "#{property['location']['neighbourhood']}, #{property['location']['city']}, #{property['location']['state']}" : @citydata = "#{property['location']['city']}, #{property['location']['state']}" %>
-							<% end %>
-							<h4 class="propsubheading"><%= @citydata %></h4>
-							<%= truncate("Once upon a time in a world far far away") { link_to "Continue", "#" }%>
-							<% if property['photos'][0]['medium'] != nil %><br>
-							
-							<img class="propertyimg" src="<%= property["photos"][0]["medium"] %>"><br>
-							<% end %>
-							<div class="propinfo row">
-							<a href="<%= property['provider']['url'] %>">Link to Property</a><br>
-							<% if property['price'] != nil %>
-							Monthly: $<%= property['price']['monthly'] %><br>
-							Weekly: $<%= property['price']['weekly'] %><br>
-							<% if property['price']['daily'] != nil %>
-							Daily: $<%= property['price']['daily'] %><br>
-							<% end %>
-							<% end %>
-							Minimum Stay: <%= "#{property['price']['minNight']} nights" %><br>
-							Room type: <%= property['attr']['propType']['text'] %><br>
-							Bedrooms: <%= property['attr']['bedrooms'] %><br>
-							<% if property['attr']['beds'] != -1 %>
-							Beds: <%= property['attr']['beds'] %>
-							<% else %>
-							Actual bed not present(Pullout couch, etc)
-							<% end %>
-							</div>
-						</li>
-						</div>
-						<% else %>
-						<div class="propertysingle col-sm-4">
-							Property not found
-						</div>
-					<% end %>
-				<% end %>
-				</ul>
+<div class="container">
+	<div class="row">
+		<% @properties.each do |property| %>
+		<% if property['itemStatus'].present? %>
+		<div class="col-sm-4 col-xs-6">
+			<div class="panel panel-default text-center">
+				<div class="panel-thumbnail-search">	<% if property['photos'][0]['medium'] != nil %>
+					
+					<img class="propertyimg" src="<%= property["photos"][0]["medium"] %>"><br>
+				<% end %></div>
+				<div class="panel-body">
+					<p class="lead"><h3 class="propheading"><%= property['attr']['heading'] %></h3>
+						<% if property['location']['neighbourhood'].present? ? @citydata = "#{property['location']['neighbourhood']}, #{property['location']['city']}, #{property['location']['state']}" : @citydata = "#{property['location']['city']}, #{property['location']['state']}" %>
+						<% end %>
+					</p>
+					<p>
+						Monthly: $<%= property['price']['monthly'] %><br>&nbsp;Weekly: $<%= property['price']['weekly'] %><br>&nbsp;<br>
+						<%= property['attr']['propType']['text'] %><br>
+					</p>
+					<p>
+						Minimum Stay: <%= "#{property['price']['minNight']} nights" %><br>
+					</p>
+					<small><a href="<%= property['provider']['url'] %>">Link to Property</a><br></small>
+				</div>
 			</div>
-		</div>	
-</div>
+			</div><!--/col-->
+			<% end %>
+			<% end %>
+		</div>
+	</div>
