@@ -13,8 +13,8 @@ class CitiesController < ApplicationController
   # GET /cities/1.json
   def show
     @city = City.find_by(id: params[:id])
-    @coords = @city.bootcampcoords.all
-     @hash = Gmaps4rails.build_markers(@city.bootcampcoords.all) do |coordinates, marker|
+    @coords = @city.bootcampcoords.where(city_id: @city.id)
+     @hash = Gmaps4rails.build_markers(@coords = @city.bootcampcoords.where(city_id: @city.id)) do |coordinates, marker|
       marker.lat coordinates.lat
       marker.lng coordinates.lon
       end
@@ -22,8 +22,10 @@ class CitiesController < ApplicationController
   end
   def shownew
         @city = City.find_by(id: params[:id])
-    @coords = @city.bootcampcoords.all
-     @hash = Gmaps4rails.build_markers(@city.bootcampcoords.all) do |coordinates, marker|
+    @coords = @city.bootcampcoords.where(city_id: @city.id)
+    puts '----------'
+    puts
+     @hash = Gmaps4rails.build_markers(@city.bootcampcoords.where(city_id: @city.id)) do |coordinates, marker|
       marker.lat coordinates.lat
       marker.lng coordinates.lon
       end
