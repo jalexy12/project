@@ -19,7 +19,7 @@
                 <li class="list-group-item text-muted" contenteditable="false">Profile</li>
                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Joined</strong></span> 03/12/15</li>
                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">BootcampEZ approved?</strong></span> Yes</li>
-                    <li class="list-group-item text-right"><span class="pull-left"><strong class="">Who's in charge?</strong></span>Ariel Quinones</li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong class="">Who's in charge?</strong></span><%= @bootcamp.ceo %></li>
               <li class="list-group-item text-right"><span class="pull-left"><strong class="">Locations</strong></span><% @bootcamp.cities.each do|city|%> <%= city.name %><br>
               			<% end %>
                       </li>
@@ -44,9 +44,9 @@
                 <div class="panel-heading">Social Media</div>
                 <div class="panel-body">	   <div class="span3">
                     <p> 
-                        <a href="http://twitter.com/Bootply" rel="nofollow" title="Bootply on Twitter" target="ext">Twitter</a><br>
-                        <a href="https://plus.google.com/+Bootply" rel="publisher">Google+</a><br>
-                        <a href="http://facebook.com/Bootply" rel="nofollow" title="Bootply on Facebook" target="ext">Facebook</a><br>
+                        <a href="#" rel="nofollow" title="Bootply on Twitter" target="ext">Twitter</a><br>
+                        <a href="#" rel="publisher">Google+</a><br>
+                        <a href="#" rel="nofollow" title="Bootply on Facebook" target="ext">Facebook</a><br>
                     </p>
                 </div>
                 </div>

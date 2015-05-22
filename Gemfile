@@ -6,13 +6,15 @@ gem 'rails', '4.2.0'
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'devise'
+
+gem 'json', '~> 1.8'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem "rubillow"
 gem 'bootstrap_form', github: 'bootstrap-ruby/rails-bootstrap-forms'
-gem 'roomorama_api'
 gem 'underscore-rails'
+gem 'therubyracer'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'react-rails', github: 'reactjs/react-rails', branch: 'master'

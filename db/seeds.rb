@@ -49,27 +49,18 @@ coconutGrove.neighborhoodimgs.create(url: "/assets/coconut.jpg")
 designDistrict.neighborhoodimgs.create(url: "/assets/designDistrict.jpg")
 wynwood.neighborhoodimgs.create(url: "/assets/wynwood.jpg")	
 #bootcamps
-ironhack = Bootcamp.create(name: "Ironhack", description: "Sweet Miami bootcamp for bros", url: "http://ironhack.com/en/", approved: true )
-appAcademy = Bootcamp.create(name: "App Academy", description: "Description goes here", url:"http://www.appacademy.io/", approved: true )
-wyncode = Bootcamp.create(name: "Wyncode", description: "Hipsters can code too", url: "http://wyncode.co/", approved: true)
-byteAcademy = Bootcamp.create(name: "Byte Academy", description: "Description goes here", url: "http://www.byteacademy.co/", approved: true)
-codeFellows = Bootcamp.create(name: "Code Fellows", description: "Description goes here", url: "https://www.codefellows.org/", approved: true)
-codeCore = Bootcamp.create(name: "Code Core", description: "Description goes here", url:"http://codecore.ca/", approved: true )
-codeDojo = Bootcamp.create(name: "Code Dojo", description: "Description goes here", url: "http://www.codingdojo.com/", approved: true)
-devBootcamp = Bootcamp.create(name: "Dev Bootcamp", description: "Description goes here", url: "http://devbootcamp.com/", approved: true)
-lightHouseLabs = Bootcamp.create(name: "Light House Labs", description: "Description goes here", url: "https://www.lighthouselabs.ca/", approved: true)
-claimAcademy = Bootcamp.create(name: "Claim academy", description: "Description goes here", url: "http://claimacademystl.com/", approved: true)
-hackReactor = Bootcamp.create(name: "Hack Reactor", description: "Description goes here", url: "http://www.hackreactor.com/", approved: true )
+ironhack = Bootcamp.create(name: "Ironhack", ceo: "Ariel Quinones", description: "Sweet Miami bootcamp for bros", url: "http://ironhack.com/en/", approved: true )
+appAcademy = Bootcamp.create(name: "App Academy", ceo: Faker::Name.name, description: "Description goes here", url:"http://www.appacademy.io/", approved: true )
+wyncode = Bootcamp.create(name: "Wyncode", ceo: Faker::Name.name, description: "Hipsters can code too", url: "http://wyncode.co/", approved: true)
+byteAcademy = Bootcamp.create(name: "Byte Academy", ceo: Faker::Name.name, description: "Description goes here", url: "http://www.byteacademy.co/", approved: true)
+codeFellows = Bootcamp.create(name: "Code Fellows", ceo: Faker::Name.name, description: "Description goes here", url: "https://www.codefellows.org/", approved: true)
+codeCore = Bootcamp.create(name: "Code Core", ceo: Faker::Name.name, description: "Description goes here", url:"http://codecore.ca/", approved: true )
+codeDojo = Bootcamp.create(name: "Code Dojo", ceo: Faker::Name.name, description: "Description goes here", url: "http://www.codingdojo.com/", approved: true)
+devBootcamp = Bootcamp.create(name: "Dev Bootcamp",ceo: Faker::Name.name,  description: "Description goes here", url: "http://devbootcamp.com/", approved: true)
+lightHouseLabs = Bootcamp.create(name: "Light House Labs", ceo: Faker::Name.name, description: "Description goes here", url: "https://www.lighthouselabs.ca/", approved: true)
+claimAcademy = Bootcamp.create(name: "Claim academy", ceo: Faker::Name.name, description: "Description goes here", url: "http://claimacademystl.com/", approved: true)
+hackReactor = Bootcamp.create(name: "Hack Reactor", ceo: Faker::Name.name, description: "Description goes here", url: "http://www.hackreactor.com/", approved: true )
 #bootcamp logos
-# ironhackLogo = 
-# appAcademyLogo = 
-# wyncodeLogo = 
-# byteAcademyLogo = 
-# codeFellowsLogo = 
-# codeCoreLogo = 
-# codeDojoLogo = 
-# devBootcampLogo = 
-# ironhackLogo = 
 ironhack.bootcampimgs.create(url: "ironhacklogo.png")
 appAcademy.bootcampimgs.create(url: "appAcademyLogo.png")
 wyncode.bootcampimgs.create(url: "wyncodelogo.jpeg")
@@ -121,5 +112,6 @@ lightHouseLabs.bootcampcoords.create(city_id: 8, lat: 49.281844, lon: -123.10816
 ironhack.users.push(User.find(1))
 ironhack.users.push(User.find(2))
 ironhack.users.push(User.find(3))
+
 
 
