@@ -62,15 +62,15 @@
       });
   });   
    });
-   </script>
+</script>
 
 
-<div class="container-fluid" id="main">
+<div class="container" id="main">
     <div id="map"></div>
-    <div class="row">
+    <!-- <div class="row"> -->
         
     <div class="row">
-      <div class="col-xs-8" id="left">
+      <div class="col-xs-10" id="left">
     <%= image_tag(@city.cityimgs.first.url, class: "cityshowimg img-responsive") %>
     </div>
     <div class="col-xs-8" id="left">
@@ -82,7 +82,7 @@
         dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
         Aliquam in felis sit amet augue.</p>
         <hr>
-    <div class="col-xs-8" id="left">
+    <div class="col-xs-10" id="left">
       <h2 class="heading" style="font-size: 2em; margin-bottom: 2%;">Available bootcamps in this city</h2>
       <!-- item list -->
       <% @city.bootcamps.each do |bootcamp| %>

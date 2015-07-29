@@ -1,28 +1,17 @@
-== README
+== BootcampEZ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+http://bootcampez.herokuapp.com
 
-Things you may want to cover:
+###My final project for Ironhack
 
-* Ruby version
+-- 
 
-* System dependencies
+An app to help interested travelers find a web development bootcamp, and the short term housing associated with it. 
 
-* Configuration
+Gems and APIs:
 
-* Database creation
+* Used the Zilyo API for real estate search
 
-* Database initialization
+* gmaps4rails and the google geocoder gem
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Typical rails stack postgres / jquery 

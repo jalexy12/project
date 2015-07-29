@@ -1,4 +1,5 @@
-var BootcampBox = React.createClass({
+  var BootcampBox = React.createClass({
+  
   loadBootcampsFromServer: function() {
     $.ajax({
       url: this.props.url,
@@ -11,13 +12,16 @@ var BootcampBox = React.createClass({
       }.bind(this)
     });
   },
+
   componentDidMount: function() {
     this.loadBootcampsFromServer();
     setInterval(this.loadBootcampsFromServer, this.props.pollInterval);
   },
+
   getInitialState: function() {
     return {data: []};
   },
+
   render: function() {
      console.log(this.state)
     return (
@@ -34,6 +38,7 @@ var BootcampBox = React.createClass({
     );
   }
 });
+
 var Bootcamp = React.createClass({
   render: function() {
     return (
